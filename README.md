@@ -8,14 +8,14 @@
 
 
 # Wireframe:
-- Sign in page:
-![layout](/)
-- Index page of all the outfits:
-![layout](/)
-- Show page:
-![layout](/)
-- User Profile of outfits
-![layout](/)
+## Sign in page:
+![sign in page](./public/signin.png)
+## Index Page of all the Outfits:
+![index page](./public/index.png)
+## Show Page:
+![show page](./public/show.png)
+## User Profile of Outfits
+![user profile page](./public/profile.png)
  
 
 
