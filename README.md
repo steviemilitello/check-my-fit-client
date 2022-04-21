@@ -5,12 +5,13 @@
 - they will to be able to look through a feed of outfits uploaded by other users
 - they will be able to click on individual outfits to see more details, previous comments, & be able to add a comment
 - they will be able to upload personal outfits, with a description
+- they will be able to their or another users profile page and see a list of their outfits 
 
 
 # Wireframe:
 ## Sign in page:
 ![sign in page](./public/signin.png)
-## Index Page of all the Outfits:
+## Index Page of all the Outfits: 
 ![index page](./public/index.png)
 ## Show Page:
 ![show page](./public/show.png)
