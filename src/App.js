@@ -11,6 +11,7 @@ import Home from './components/Home'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
+import IndexOutfits from './components/outfits/IndexOutfits'
 import ChangePassword from './components/auth/ChangePassword'
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+					<Route path='/outfits' element={<IndexOutfits msgAlert={msgAlert} />} />
 					<Route
 						path='/sign-up'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
