@@ -54,7 +54,9 @@ const ShowOutfit = (props) => {
                             <p>Date: {outfit.date}</p>
                             <p>Description: {outfit.description}</p>
                             <p>Rating: {outfit.rating}</p>
-                            <p>Tags: {outfit.tags}</p>
+                            {outfit.tags.map(tag => (
+                                <p>Tags: {tag.category}</p>
+                            ))}
                         </Card.Text>
                     </Card.Body>
                     {/* <Card.Footer className="show-footer">
