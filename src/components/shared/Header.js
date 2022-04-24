@@ -8,6 +8,11 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
+		<Nav.Item className="m-2">
+			<Link to='addOutfit' style={linkStyle}>
+				Add New Outfit
+			</Link>
+		</Nav.Item>
 		<Nav.Item>
 			<Link to='change-password' style={linkStyle}>
 				Change Password

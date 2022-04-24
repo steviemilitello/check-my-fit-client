@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import IndexOutfits from './components/outfits/IndexOutfits'
 import ShowOutfit from './components/outfits/ShowOutfit'
+import CreateOutfit from './components/outfits/CreateOutfit'
 import ChangePassword from './components/auth/ChangePassword'
 
 const App = () => {
@@ -70,6 +71,14 @@ const App = () => {
               <RequireAuth user={user}>
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
+		/>
+		<Route
+			path='/addOutfit'
+			element={
+				<RequireAuth user={user}>
+					<CreateOutfit msgAlert={msgAlert} user={user} />
+				</RequireAuth>
+			}
 		/>
 		<Route
 			path='/outfits/:id'
