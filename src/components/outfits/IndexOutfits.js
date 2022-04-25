@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getAllOutfits } from '../../api/outfit'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, ButtonToolbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -60,9 +60,9 @@ const IndexOutfits = (props) => {
                         {outfit.tags.map(tag => (
                             <p>Tags: {tag.category}</p>
                         ))}
-                        <Link to={`/outfits/${outfit._id}`}>
+                        <p><Link to={`/outfits/${outfit._id}`}>
                             <Button variant="secondary">View</Button>
-                        </Link>
+                        </Link></p>
                     </Card.Text>
                 </Card.Body>
             </Card >
