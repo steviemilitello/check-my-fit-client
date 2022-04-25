@@ -71,18 +71,6 @@ const Header = ({ user }) => (
 				{user ? authenticatedOptions(user) : unauthenticatedOptions}
 			</Nav>
 
-			{/* <div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-</div> */}
 			<NavDropdown title="Tag Search" id="basic-nav-dropdown">
 				<NavDropdown.Item href="/tags/vintage">vintage</NavDropdown.Item>
 				<NavDropdown.Item href="/tags/casual">casual</NavDropdown.Item>
