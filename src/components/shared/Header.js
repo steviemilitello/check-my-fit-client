@@ -84,24 +84,24 @@ const Header = ({ user }) => (
   </div>
 </div> */}
 			<NavDropdown title="Tag Search" id="basic-nav-dropdown">
-				<NavDropdown.Item href="#action/3.1">vintage</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.2">casual</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.3">grunge</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">goth</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">punk</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">boho</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">artsy</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">date night</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">summer look</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">spring look</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">fall look</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">winter look</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">western</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">sexy</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">sporty</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">formal</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">day</NavDropdown.Item>
-				<NavDropdown.Item href="#action/3.4">evening</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/vintage">vintage</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/casual">casual</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/grunge">grunge</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/goth">goth</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/punk">punk</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/boho">boho</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/artsy">artsy</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/datenight">date night</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/summerlook">summer look</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/springlook">spring look</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/falllook">fall look</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/winterlook">winter look</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/western">western</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/sexy">sexy</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/sporty">sporty</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/formal">formal</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/day">day</NavDropdown.Item>
+				<NavDropdown.Item href="/tags/evening">evening</NavDropdown.Item>
 
 			</NavDropdown>
 		</Navbar.Collapse>
