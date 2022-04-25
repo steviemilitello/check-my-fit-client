@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { getOneOutfit, updateOutfit } from '../../api/outfit'
+import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
-import { showOutfitSuccess, showOutfitFailure } from '../shared/AutoDismissAlert/messages'
+import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure } from '../shared/AutoDismissAlert/messages'
 
 const ShowOutfit = (props) => {
 
@@ -34,6 +33,26 @@ const ShowOutfit = (props) => {
                 })
             })
     }, [updated])
+
+    const removeTheOutfit = () => {
+
+        removeOutfit(user, outfit._id)
+            .then(() => {
+                msgAlert({
+                    heading: 'The outfit has been removed!',
+                    message: removeOutfitSuccess,
+                    variant: 'success',
+                })
+            })
+            .then(() => { navigate(`/outfits`) })
+            .catch(() => {
+                msgAlert({
+                    heading: 'Spooky Place deletion failed.',
+                    message: removeOutfitFailure,
+                    variant: 'danger',
+                })
+            })
+    }
 
     if (!outfit) {
         return (
@@ -68,6 +87,9 @@ const ShowOutfit = (props) => {
                             <>
                                 <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                                     Edit Outfit
+                                </Button>
+                                <Button onClick={() => removeTheOutfit()}className="m-2" variant="danger">
+                                Delete Outfit
                                 </Button>
                             </>
 

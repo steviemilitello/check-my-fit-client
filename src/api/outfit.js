@@ -41,3 +41,15 @@ export const updateOutfit = (user, updatedOutfit) => {
         data: { outfit: updatedOutfit }
     })
 }
+
+// DELETE -> remove function
+export const removeOutfit = (user, outfitId) => {
+    console.log('user', user)
+    return axios({
+        url: `${apiUrl}/outfits/${outfitId}`,
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        }
+    })
+}
