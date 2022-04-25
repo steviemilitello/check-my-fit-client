@@ -25,6 +25,7 @@ export const createOutfit = (user, newOutfit) => {
             Authorization: `Token token=${user.token}`
         },
         data: { outfit: newOutfit }
+
     })
 }
 
@@ -39,6 +40,7 @@ export const updateOutfit = (user, updatedOutfit) => {
             Authorization: `Token token=${user.token}`
         },
         data: { outfit: updatedOutfit }
+
     })
 }
 
