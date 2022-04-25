@@ -3,11 +3,17 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
-    color: 'white',
-    textDecoration: 'none'
+	color: 'white',
+	textDecoration: 'none'
 }
-const authenticatedOptions = (
+const authenticatedOptions = (user) => (
 	<>
+		<Nav.Item className="m-2">
+			<Link to={`outfits/user/${user._id}`} style={linkStyle}>
+				My Fits
+			</Link>
+		</Nav.Item>
+
 		<Nav.Item className="m-2">
 			<Link to='addOutfit' style={linkStyle}>
 				Add New Outfit
@@ -28,12 +34,12 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Item>
-		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
-        </Nav.Item>
-        <Nav.Item>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
-        </Nav.Item>
+		<Nav.Item>
+			<Link to='sign-up' style={linkStyle}>Sign Up</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='sign-in' style={linkStyle}>Sign In</Link>
+		</Nav.Item>
 	</>
 )
 
@@ -50,10 +56,10 @@ const alwaysOptions = (
 const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                react-auth-template
-            </Link>
-        </Navbar.Brand>
+			<Link to='/' style={linkStyle}>
+				react-auth-template
+			</Link>
+		</Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
@@ -61,7 +67,7 @@ const Header = ({ user }) => (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
-				{user ? authenticatedOptions : unauthenticatedOptions}
+				{user ? authenticatedOptions(user) : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
