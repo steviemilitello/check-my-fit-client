@@ -9,50 +9,50 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
-	// constructor(props) {
-	// 	super(props)
+    // constructor(props) {
+    // 	super(props)
 
-	// 	this.state = {
-	// 		email: '',
-	// 		password: '',
-	// 		passwordConfirmation: '',
-	// 	}
-	// }    
+    // 	this.state = {
+    // 		email: '',
+    // 		password: '',
+    // 		passwordConfirmation: '',
+    // 	}
+    // }    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
     const navigate = useNavigate()
 
-	const onSignUp = (event) => {
-		event.preventDefault()
+    const onSignUp = (event) => {
+        event.preventDefault()
 
-		const { msgAlert, setUser } = props
+        const { msgAlert, setUser } = props
 
-        const credentials = {email, password, passwordConfirmation}
+        const credentials = { email, password, passwordConfirmation }
 
-		signUp(credentials)
-			.then(() => signIn(credentials))
-			.then((res) => setUser(res.data.user))
-			.then(() =>
-				msgAlert({
-					heading: 'Sign Up Success',
-					message: messages.signUpSuccess,
-					variant: 'success',
-				})
-			)
-			.then(() => navigate('/'))
-			.catch((error) => {
+        signUp(credentials)
+            .then(() => signIn(credentials))
+            .then((res) => setUser(res.data.user))
+            .then(() =>
+                msgAlert({
+                    heading: 'Sign Up Success',
+                    message: messages.signUpSuccess,
+                    variant: 'success',
+                })
+            )
+            .then(() => navigate('/outfits'))
+            .catch((error) => {
                 setEmail('')
                 setPassword('')
                 setPasswordConfirmation('')
-				msgAlert({
-					heading: 'Sign Up Failed with error: ' + error.message,
-					message: messages.signUpFailure,
-					variant: 'danger',
-				})
-			})
-	}
+                msgAlert({
+                    heading: 'Sign Up Failed with error: ' + error.message,
+                    message: messages.signUpFailure,
+                    variant: 'danger',
+                })
+            })
+    }
 
 
     return (

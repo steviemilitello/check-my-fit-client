@@ -31,6 +31,9 @@ const CreateOutfit = (props) => {
 
             const updatedValue = { [name]: value }
 
+            console.log('prevOutfit', prevOutfit)
+            console.log('updatedValue', updatedValue)
+
             return { ...prevOutfit, ...updatedValue }
         })
     }
@@ -40,8 +43,10 @@ const CreateOutfit = (props) => {
         e.preventDefault()
 
         createOutfit(user, outfit)
-            // if create is successful, we should navigate to the show page
-            .then(res => { navigate(`/outfits/${res.data.outfit._id}`) })
+
+            .then(res => {
+                navigate(`/outfits/${res.data._id}`)
+            })
             // then we send a success message
             .then(() =>
                 msgAlert({
@@ -50,7 +55,7 @@ const CreateOutfit = (props) => {
                     variant: 'success',
                 }))
             .catch(() =>
-            // if there is an error, we'll send an error message
+                // if there is an error, we'll send an error message
                 msgAlert({
                     heading: 'Failed to create an Outfit!',
                     message: createOutfitFailure,
