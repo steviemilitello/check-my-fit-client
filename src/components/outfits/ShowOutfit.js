@@ -3,6 +3,7 @@ import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
+import Moment from 'react-moment'
 import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure } from '../shared/AutoDismissAlert/messages'
 
 const ShowOutfit = (props) => {
@@ -72,7 +73,7 @@ const ShowOutfit = (props) => {
                     <Card.Body className="d-flex justify-content-start">
                         <img className="show-page-img" src={outfit.img}></img>
                         <Card.Text className="show-page-card">
-                            <p>Date: {outfit.date}</p>
+                            <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
                             <p>Description: {outfit.description}</p>
                             <p>Rating: {outfit.rating}</p>
                             {outfit.tags.map(tag => (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getAllOutfits } from '../../api/outfit'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
 
 const cardContainerLayout = {
@@ -53,7 +54,7 @@ const IndexOutfits = (props) => {
                     <p><img class="outfit-image" src={outfit.img}></img></p>
 
                     <Card.Text className="card-text">
-                        <p>Date: {outfit.date}</p>
+                        <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
                         <p>Description: {outfit.description}</p>
                         <p>Rating: {outfit.rating}</p>
                         {outfit.tags.map(tag => (
