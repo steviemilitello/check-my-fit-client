@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { getOneOutfit } from '../../api/outfit'
+import { Link } from 'react-router-dom'
+import { getOneOutfit, updateOutfit } from '../../api/outfit'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Spinner, Container, Card } from 'react-bootstrap'
+import { Spinner, Container, Card, Button } from 'react-bootstrap'
+import EditOutfitModal from './EditOutfitModal'
 import { showOutfitSuccess, showOutfitFailure } from '../shared/AutoDismissAlert/messages'
 
 const ShowOutfit = (props) => {
 
     const [outfit, setOutfit] = useState(null)
-    // const [modalOpen, setModalOpen] = useState(false)
+    const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const { user, msgAlert } = props
     const { id } = useParams()
@@ -59,34 +61,34 @@ const ShowOutfit = (props) => {
                             ))}
                         </Card.Text>
                     </Card.Body>
-                    {/* <Card.Footer className="show-footer">
-                        {
-                            outfit.owner && user && (user._id === outfit.owner._id)
-                                ?
-                                <>
-                                    <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
-                                        Edit Outfit
-                                    </Button>
-                                </>
+                    <Card.Footer className="show-footer">
+                    {
+                        outfit.owner && user && (user._id === outfit.owner._id)
+                            ?
+                            <>
+                                <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                                    Edit Outfit
+                                </Button>
+                            </>
 
-                                :
+                            :
 
-                                null
+                            null
 
-                        }
+                    }
 
-                    </Card.Footer> */}
+                    </Card.Footer>
                 </Card>
             </Container>
-            {/* <EditOutfitModal
+            <EditOutfitModal
                 outfit={outfit}
                 show={modalOpen}
                 user={user}
                 msgAlert={msgAlert}
                 triggerRefresh={() => setUpdated(prev => !prev)}
-                updatePlace={updateOutfit}
+                updateOutfit={updateOutfit}
                 handleClose={() => setModalOpen(false)}
-            /> */}
+            />
         </>
     )
 }

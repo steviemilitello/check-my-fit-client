@@ -25,5 +25,21 @@ export const createOutfit = (user, newOutfit) => {
             Authorization: `Token token=${user.token}`
         },
         data: { outfit: newOutfit }
+
+    })
+}
+
+// PATCH -> update function
+export const updateOutfit = (user, updatedOutfit) => {
+    console.log('user', user)
+    console.log('this is updatedOutfit', updatedOutfit)
+    return axios({
+        url: `${apiUrl}/outfits/${updatedOutfit._id}`,
+        method: 'PUT',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        },
+        data: { outfit: updatedOutfit }
+
     })
 }
