@@ -11,6 +11,8 @@ const messages = {
 	showOutfitSuccess: 'Outfit retrieved successfully',
 	createOutfitSuccess: 'Outfit created successfully',
 	createPlaceFailure: 'Failed to create a Outfit. Please try again',
+	editOutfitSuccess: 'The Outfit has been updated successfully!',
+	editOutfitFailure: 'The Outfit has not been updated successfully',
 }
 
 module.exports = messages
