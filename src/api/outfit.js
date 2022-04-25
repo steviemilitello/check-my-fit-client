@@ -6,6 +6,11 @@ export const getAllOutfits = () => {
     return axios(`${apiUrl}/outfits`)
 }
 
+// index user outfit function for a profile view
+export const getAllUserOutfits = (userId) => {
+    return axios(`${apiUrl}/outfits/user/${userId}`)
+}
+
 // show function
 export const getOneOutfit = (outfitId) => {
     return axios(`${apiUrl}/outfits/${outfitId}`)
