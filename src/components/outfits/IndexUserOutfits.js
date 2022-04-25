@@ -13,7 +13,7 @@ const cardContainerLayout = {
 const IndexUserOutfits = (props) => {
 
     const { id } = useParams()
-    const [outfits, setOutfits] = useState(null)
+    const [ outfits, setOutfits] = useState(null)
     const { msgAlert } = props
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const IndexUserOutfits = (props) => {
             < Card key={outfit._id} style={{ width: '30%' }} className="m-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
 
-                    <p><img class="outfit-image" src={outfit.img}></img></p>
+                    <p><img className="outfit-image" src={outfit.img}></img></p>
 
                     <Card.Text className="card-text">
                         <p>Date: {outfit.date}</p>
