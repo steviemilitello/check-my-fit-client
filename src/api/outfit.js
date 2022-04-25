@@ -24,6 +24,6 @@ export const createOutfit = (user, newOutfit) => {
         headers: {
             Authorization: `Token token=${user.token}`
         },
-        data: { place: newOutfit }
+        data: { outfit: newOutfit }
     })
 }

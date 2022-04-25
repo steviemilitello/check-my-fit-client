@@ -18,8 +18,6 @@ const CreateOutfit = (props) => {
         img: '', description: '', date: '',
     })
 
-    // console.log('In create place', place)
-
     const handleChange = (e) => {
         // e === event
         e.persist()
@@ -41,7 +39,7 @@ const CreateOutfit = (props) => {
 
         createOutfit(user, outfit)
             // if create is successful, we should navigate to the show page
-            .then(res => { navigate(`/outfits/${res.data.outfit._id}`) })
+            .then(res => { navigate(`/outfits/${res.data._id}`) })
             // then we send a success message
             .then(() =>
                 msgAlert({
