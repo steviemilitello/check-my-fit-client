@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import IndexOutfits from './components/outfits/IndexOutfits'
 import IndexUserOutfits from './components/outfits/IndexUserOutfits'
+import IndexCasualOutfits from './components/tag/Casual'
 import ShowOutfit from './components/outfits/ShowOutfit'
 import CreateOutfit from './components/outfits/CreateOutfit'
 import ChangePassword from './components/auth/ChangePassword'
@@ -89,6 +90,10 @@ const App = () => {
 				<Route
 					path='/outfits/user/:id'
 					element={<IndexUserOutfits msgAlert={msgAlert} user={user} />}
+				/>
+				<Route
+					path='/tags/casual'
+					element={<IndexCasualOutfits msgAlert={msgAlert} user={user} />}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
