@@ -5,12 +5,16 @@ import { Spinner, Container, Card, Button } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
 import Moment from 'react-moment'
 import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure } from '../shared/AutoDismissAlert/messages'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFire } from '@fortawesome/free-solid-svg-icons'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const ShowOutfit = (props) => {
 
     const [outfit, setOutfit] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
+    const setVoted = useState(false)
     const { user, msgAlert } = props
     const { id } = useParams()
     const navigate = useNavigate()
@@ -55,6 +59,25 @@ const ShowOutfit = (props) => {
             })
     }
 
+    const addVote = (voteType) => {
+        outfit[voteType] += 1
+
+        if (outfit.hotVotes >= outfit.notVotes) {
+            outfit.rating = 'Hot'
+        } else {
+            outfit.rating = 'Not'
+        }
+        updateOutfit(user, outfit)
+            .then(() => setUpdated(true))
+            .then(() => setVoted(true))
+    }    // .catch(() =>)
+
+
+    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('hotVotes')} disabled={setVoted} />
+    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('notVotes')} disabled={setVoted} />
+
+
+
     if (!outfit) {
         return (
             <Container fluid className="justify-content-center">
@@ -79,26 +102,27 @@ const ShowOutfit = (props) => {
                             {outfit.tags.map(tag => (
                                 <p>Tags: {tag.category}</p>
                             ))}
+                            <h4>{hot} or {not}</h4>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="show-footer">
-                    {
-                        outfit.owner && user && (user._id === outfit.owner._id)
-                            ?
-                            <>
-                                <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
-                                    Edit Outfit
-                                </Button>
-                                <Button onClick={() => removeTheOutfit()}className="m-2" variant="danger">
-                                Delete Outfit
-                                </Button>
-                            </>
+                        {
+                            outfit.owner && user && (user._id === outfit.owner._id)
+                                ?
+                                <>
+                                    <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                                        Edit Outfit
+                                    </Button>
+                                    <Button onClick={() => removeTheOutfit()} className="m-2" variant="danger">
+                                        Delete Outfit
+                                    </Button>
+                                </>
 
-                            :
+                                :
 
-                            null
+                                null
 
-                    }
+                        }
 
                     </Card.Footer>
                 </Card>
