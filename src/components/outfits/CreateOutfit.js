@@ -19,15 +19,10 @@ const CreateOutfit = (props) => {
     })
 
     const handleTagSelect = (e) => {
-        if (this.state.tags) {
-            let tagArr = [...this.state.tags]
-        } else {
-            let tagArr = []
-        }
-        tagArr.push(e.target.value)
-        this.setState({
-            tags: tagArr
-        })
+        const outfitTags = outfit.tags
+        console.log("outfitTags", outfitTags)
+        const updatedTarget = outfitTags.push(e.target.value)
+        return { ...updatedTarget }
     }
 
     const handleChange = (e) => {
