@@ -30,97 +30,134 @@ const OutfitForm = (props) => {
                     name='date'
                     onChange={handleChange}
                 />
+                <input type="hidden" value={outfit.rating} name='Hot' />
+
                 <Form.Label>Tags</Form.Label><br />
                 <Form.Check
                     inline
                     label="vintage"
-                    name="vintage"
+                    name="tags"
                     value="626587550dbd6c533ca22e9e"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="casual"
-                    name="casual"
+                    name="tags"
+                    value="626587550dbd6c533ca22e9f"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="grunge"
-                    name="grunge"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea0"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="goth"
-                    name="goth"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea1"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="punk"
-                    name="punk"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea2"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="boho"
-                    name="boho"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea3"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="artsy"
-                    name="artsy"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea4"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="date night"
-                    name="date night"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea5"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="summer look"
-                    name="summer look"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea6"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="spring look"
-                    name="spring look"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea7"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="fall look"
-                    name="fall look"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea8"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="winter look"
-                    name="winter look"
+                    name="tags"
+                    value="626587550dbd6c533ca22ea9"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="western"
-                    name="western"
+                    name="tags"
+                    value="626587550dbd6c533ca22eaa"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="sexy"
-                    name="sexy"
+                    name="tags"
+                    value="626587550dbd6c533ca22eab"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="sporty"
-                    name="sporty"
+                    name="tags"
+                    value="626587550dbd6c533ca22eac"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="formal"
-                    name="formal"
+                    name="tags"
+                    value="626587550dbd6c533ca22ead"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="day"
-                    name="day"
+                    name="tags"
+                    value="626587550dbd6c533ca22eae"
+                    onChange={handleChange}
                 />
                 <Form.Check
                     inline
                     label="evening"
-                    name="evening"
+                    name="tags"
+                    value="626587550dbd6c533ca22eaf"
+                    onChange={handleChange}
                 />
                 <br />
                 <Button type='submit'>Submit</Button>
