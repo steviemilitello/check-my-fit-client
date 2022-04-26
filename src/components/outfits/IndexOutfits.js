@@ -43,6 +43,7 @@ const IndexOutfits = (props) => {
         return <p>No Outfits yet, go add some</p>
     }
 
+
     let outfitCards
 
     if (outfits.length > 0) {
