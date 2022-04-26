@@ -15,8 +15,20 @@ const CreateOutfit = (props) => {
 
     // we'll need two states
     const [outfit, setOutfit] = useState({
-        img: '', description: '', date: '', tags: Number,
+        img: '', description: '', date: '', tags: [],
     })
+
+    const handleTagSelect = (e) => {
+        if (this.state.tags) {
+            let tagArr = [...this.state.tags]
+        } else {
+            let tagArr = []
+        }
+        tagArr.push(e.target.value)
+        this.setState({
+            tags: tagArr
+        })
+    }
 
     const handleChange = (e) => {
         // e === event
@@ -65,6 +77,7 @@ const CreateOutfit = (props) => {
         <OutfitForm
             outfit={outfit}
             handleChange={handleChange}
+            handleTagSelect={handleTagSelect}
             handleSubmit={handleSubmit}
             heading="Add a new Outfit!"
         />

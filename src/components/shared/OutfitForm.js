@@ -3,7 +3,7 @@ import { Form, Container, Button } from 'react-bootstrap'
 
 const OutfitForm = (props) => {
 
-    const { outfit, handleSubmit, handleChange, heading } = props
+    const { outfit, handleSubmit, handleTagSelect, handleChange, heading } = props
 
     return (
         <Container className="justify-content-center">
@@ -38,126 +38,126 @@ const OutfitForm = (props) => {
                     label="vintage"
                     name="tags"
                     value="626587550dbd6c533ca22e9e"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="casual"
                     name="tags"
                     value="626587550dbd6c533ca22e9f"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="grunge"
                     name="tags"
                     value="626587550dbd6c533ca22ea0"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="goth"
                     name="tags"
                     value="626587550dbd6c533ca22ea1"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="punk"
                     name="tags"
                     value="626587550dbd6c533ca22ea2"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="boho"
                     name="tags"
                     value="626587550dbd6c533ca22ea3"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="artsy"
                     name="tags"
                     value="626587550dbd6c533ca22ea4"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="date night"
                     name="tags"
                     value="626587550dbd6c533ca22ea5"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="summer look"
                     name="tags"
                     value="626587550dbd6c533ca22ea6"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="spring look"
                     name="tags"
                     value="626587550dbd6c533ca22ea7"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="fall look"
                     name="tags"
                     value="626587550dbd6c533ca22ea8"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="winter look"
                     name="tags"
                     value="626587550dbd6c533ca22ea9"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="western"
                     name="tags"
                     value="626587550dbd6c533ca22eaa"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="sexy"
                     name="tags"
                     value="626587550dbd6c533ca22eab"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="sporty"
                     name="tags"
                     value="626587550dbd6c533ca22eac"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="formal"
                     name="tags"
                     value="626587550dbd6c533ca22ead"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="day"
                     name="tags"
                     value="626587550dbd6c533ca22eae"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <Form.Check
                     inline
                     label="evening"
                     name="tags"
                     value="626587550dbd6c533ca22eaf"
-                    onChange={handleChange}
+                    onChange={handleTagSelect}
                 />
                 <br />
                 <Button type='submit'>Submit</Button>
