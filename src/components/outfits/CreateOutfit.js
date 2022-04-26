@@ -21,7 +21,7 @@ const CreateOutfit = (props) => {
     const handleTagSelect = (e) => {
         const outfitTags = outfit.tags
         console.log("outfitTags", outfitTags)
-        console.log("e.target.checked", e.target.checked);
+        console.log("e.target.checked", e.target.checked)
         const updatedTarget = outfitTags.push(e.target.value)
         return { ...updatedTarget }
     }
