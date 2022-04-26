@@ -15,9 +15,17 @@ const CreateOutfit = (props) => {
 
     // we'll need two states
     const [outfit, setOutfit] = useState({
-        img: '', description: '', date: '', tags: Number,
-
+        img: '', description: '', date: '', tags: [],
     })
+
+    const handleTagSelect = (e) => {
+        const outfitTags = outfit.tags
+        console.log("outfitTags", outfitTags)
+        console.log("e.target.checked", e.target.checked)
+        const checked = e.target.checked
+        const updatedTarget = outfitTags.push(e.target.value)
+        return { ...updatedTarget }
+    }
 
     const handleChange = (e) => {
         // e === event
@@ -66,6 +74,7 @@ const CreateOutfit = (props) => {
         <OutfitForm
             outfit={outfit}
             handleChange={handleChange}
+            handleTagSelect={handleTagSelect}
             handleSubmit={handleSubmit}
             heading="Add a new Outfit!"
         />
