@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 
 const OutfitForm = (props) => {
-    
+
     const { outfit, handleSubmit, handleChange, heading } = props
 
     return (
@@ -31,97 +31,98 @@ const OutfitForm = (props) => {
                     onChange={handleChange}
                 />
                 <Form.Label>Tags</Form.Label><br />
-                    <Form.Check
-                        inline
-                        label="vintage"
-                        name="vintage"
-                    />
-                    <Form.Check
-                        inline
-                        label="casual"
-                        name="casual"
-                    />
-                    <Form.Check
-                        inline
-                        label="grunge"
-                        name="grunge"
-                    />
-                    <Form.Check
-                        inline
-                        label="goth"
-                        name="goth"
-                    />
-                    <Form.Check
-                        inline
-                        label="punk"
-                        name="punk"
-                    />
-                    <Form.Check
-                        inline
-                        label="boho"
-                        name="boho"
-                    />
-                    <Form.Check
-                        inline
-                        label="artsy"
-                        name="artsy"
-                    />
-                    <Form.Check
-                        inline
-                        label="date night"
-                        name="date night"
-                    />
-                    <Form.Check
-                        inline
-                        label="summer look"
-                        name="summer look"
-                    />
-                    <Form.Check
-                        inline
-                        label="spring look"
-                        name="spring look"
-                    />
-                    <Form.Check
-                        inline
-                        label="fall look"
-                        name="fall look"
-                    />
-                    <Form.Check
-                        inline
-                        label="winter look"
-                        name="winter look"
-                    />
-                    <Form.Check
-                        inline
-                        label="western"
-                        name="western"
-                    />
-                    <Form.Check
-                        inline
-                        label="sexy"
-                        name="sexy"
-                    />
-                    <Form.Check
-                        inline
-                        label="sporty"
-                        name="sporty"
-                    />
-                    <Form.Check
-                        inline
-                        label="formal"
-                        name="formal"
-                    />
-                    <Form.Check
-                        inline
-                        label="day"
-                        name="day"
-                    />
-                    <Form.Check
-                        inline
-                        label="evening"
-                        name="evening"
-                    />
-                    <br />
+                <Form.Check
+                    inline
+                    label="vintage"
+                    name="vintage"
+                    value="626587550dbd6c533ca22e9e"
+                />
+                <Form.Check
+                    inline
+                    label="casual"
+                    name="casual"
+                />
+                <Form.Check
+                    inline
+                    label="grunge"
+                    name="grunge"
+                />
+                <Form.Check
+                    inline
+                    label="goth"
+                    name="goth"
+                />
+                <Form.Check
+                    inline
+                    label="punk"
+                    name="punk"
+                />
+                <Form.Check
+                    inline
+                    label="boho"
+                    name="boho"
+                />
+                <Form.Check
+                    inline
+                    label="artsy"
+                    name="artsy"
+                />
+                <Form.Check
+                    inline
+                    label="date night"
+                    name="date night"
+                />
+                <Form.Check
+                    inline
+                    label="summer look"
+                    name="summer look"
+                />
+                <Form.Check
+                    inline
+                    label="spring look"
+                    name="spring look"
+                />
+                <Form.Check
+                    inline
+                    label="fall look"
+                    name="fall look"
+                />
+                <Form.Check
+                    inline
+                    label="winter look"
+                    name="winter look"
+                />
+                <Form.Check
+                    inline
+                    label="western"
+                    name="western"
+                />
+                <Form.Check
+                    inline
+                    label="sexy"
+                    name="sexy"
+                />
+                <Form.Check
+                    inline
+                    label="sporty"
+                    name="sporty"
+                />
+                <Form.Check
+                    inline
+                    label="formal"
+                    name="formal"
+                />
+                <Form.Check
+                    inline
+                    label="day"
+                    name="day"
+                />
+                <Form.Check
+                    inline
+                    label="evening"
+                    name="evening"
+                />
+                <br />
                 <Button type='submit'>Submit</Button>
             </Form>
         </Container>

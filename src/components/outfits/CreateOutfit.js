@@ -15,7 +15,7 @@ const CreateOutfit = (props) => {
 
     // we'll need two states
     const [outfit, setOutfit] = useState({
-        img: '', description: '', date: '',
+        img: '', description: '', date: '', tags: '',
     })
 
     const handleChange = (e) => {
@@ -44,7 +44,7 @@ const CreateOutfit = (props) => {
 
             // if create is successful, we should navigate to the show page
             .then(res => { navigate(`/outfits/${res.data._id}`) })
-      
+
             // then we send a success message
             .then(() =>
                 msgAlert({

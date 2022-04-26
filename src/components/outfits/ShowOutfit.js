@@ -94,13 +94,15 @@ const ShowOutfit = (props) => {
                 <Card>
                     <Card.Header className='card-title'></Card.Header>
                     <Card.Body className="d-flex justify-content-start">
+                        <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email}</a></Card.Title>
                         <img className="show-page-img" src={outfit.img}></img>
                         <Card.Text className="show-page-card">
                             <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
                             <p>Description: {outfit.description}</p>
                             <p>Rating: {outfit.rating}</p>
+                            <p>Tags:</p>
                             {outfit.tags.map(tag => (
-                                <p>Tags: {tag.category}</p>
+                                <p><li>{tag.category}</li></p>
                             ))}
                             <h4>{hot} or {not}</h4>
                         </Card.Text>

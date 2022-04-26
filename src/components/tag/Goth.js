@@ -50,14 +50,15 @@ const IndexGothOutfits = (props) => {
             < Card key={outfit._id} style={{ width: '30%' }} className="m-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
                     <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email}</a></Card.Title>
-                    <p><img class="outfit-image" src={outfit.img}></img></p>
+                    <p><img class="outfit-image" src={outfit.img} alt="img"></img></p>
 
                     <Card.Text className="card-text">
                         <p>Date: {outfit.date}</p>
                         <p>Description: {outfit.description}</p>
                         <p>Rating: {outfit.rating}</p>
+                        <p>Tags:</p>
                         {outfit.tags.map(tag => (
-                            <p>Tags: {tag.category}</p>
+                            <p><li>{tag.category}</li></p>
                         ))}
                         <Link to={`/outfits/${outfit._id}`}>
                             <Button variant="secondary">View</Button>
