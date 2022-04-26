@@ -15,7 +15,7 @@ const CreateOutfit = (props) => {
 
     // we'll need two states
     const [outfit, setOutfit] = useState({
-        img: '', description: '', date: '',
+        img: '', description: '', date: '', tags: [''],
     })
 
     const handleChange = (e) => {
