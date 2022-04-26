@@ -4,7 +4,6 @@ import { Form, Container, Button } from 'react-bootstrap'
 const OutfitForm = (props) => {
 
     const { outfit, handleSubmit, handleChange, heading } = props
-
     return (
         <Container className="justify-content-center">
             <h3>{heading}</h3>
