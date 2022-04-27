@@ -94,7 +94,7 @@ const ShowOutfit = (props) => {
                 <Card>
                     <Card.Header className='card-title'></Card.Header>
                     <Card.Body className="d-flex justify-content-start">
-                        <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email}</a></Card.Title>
+                        <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
                         <img className="show-page-img" src={outfit.img}></img>
                         <Card.Text className="show-page-card">
                             <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
