@@ -7,6 +7,21 @@ const EditOutfitModal = (props) => {
     const { user, show, handleClose, updateOutfit, msgAlert, triggerRefresh } = props
     const [outfit, setOutfit] = useState(props.outfit)
 
+    const handleTagSelect = (e) => {
+        const outfitTags = outfit.tags
+
+        let updatedTarget
+        const checked = e.target.checked
+        if (checked) {
+            updatedTarget = outfitTags.push(e.target.value)
+        } else {
+            let index = outfitTags.indexOf(e.target.value)
+            outfitTags.splice(index, 1)
+            updatedTarget = outfitTags
+        }
+        return { ...updatedTarget }
+    }
+
     const handleChange = (e) => {
         // e === event
         e.persist()
@@ -52,6 +67,7 @@ const EditOutfitModal = (props) => {
                 <OutfitForm
                     outfit={outfit}
                     handleChange={handleChange}
+                    handleTagSelect={handleTagSelect}
                     handleSubmit={handleSubmit}
                     heading="Edit your Outfit!"
                 />
