@@ -18,12 +18,19 @@ const CreateOutfit = (props) => {
         img: '', description: '', date: '', tags: [],
     })
 
+
     const handleTagSelect = (e) => {
         const outfitTags = outfit.tags
-        console.log("outfitTags", outfitTags)
-        console.log("e.target.checked", e.target.checked)
+
+        let updatedTarget
         const checked = e.target.checked
-        const updatedTarget = outfitTags.push(e.target.value)
+        if (checked) {
+            updatedTarget = outfitTags.push(e.target.value)
+        } else {
+            let index = outfitTags.indexOf(e.target.value)
+            outfitTags.splice(index, 1)
+            updatedTarget = outfitTags
+        }
         return { ...updatedTarget }
     }
 
@@ -48,6 +55,7 @@ const CreateOutfit = (props) => {
     const handleSubmit = (e) => {
         // e === event
         e.preventDefault()
+        console.log('outfit', outfit)
 
         createOutfit(user, outfit)
 
