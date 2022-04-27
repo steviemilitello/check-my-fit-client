@@ -16,6 +16,8 @@ const IndexOutfits = (props) => {
     const [outfits, setOutfits] = useState(null)
     const { msgAlert } = props
 
+    console.log('outfits in app', outfits)
+
     useEffect(() => {
         getAllOutfits()
             .then(res => {
