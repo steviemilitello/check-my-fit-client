@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getFallLookOutfits } from '../../api/tag'
+import { getTagOutfits } from '../../api/tag'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -13,13 +13,17 @@ const cardContainerLayout = {
 const IndexFallLookOutfits = (props) => {
 
     const [outfits, setOutfits] = useState(null)
+    // const [tags, setTags] = useState(null)
     const { msgAlert } = props
 
     useEffect(() => {
-        getFallLookOutfits()
+        getTagOutfits("6268445ca44cc53ee2ece044")
             .then(res => {
                 setOutfits(res.data.outfits)
+                console.log("HITTTT");
+                console.log("res.data.outfits", res.data.outfits);
             })
+
             .then(() => {
                 msgAlert({
                     heading: 'Outfits have been retrieved!',
@@ -49,7 +53,7 @@ const IndexFallLookOutfits = (props) => {
 
             < Card key={outfit._id} style={{ width: '30%' }} className="m-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
-                    <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email}</a></Card.Title>
+                    <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
                     <p><img class="outfit-image" src={outfit.img} alt="img"></img></p>
 
                     <Card.Text className="card-text">
@@ -58,7 +62,7 @@ const IndexFallLookOutfits = (props) => {
                         <p>Rating: {outfit.rating}</p>
                         <p>Tags:</p>
                         {outfit.tags.map(tag => (
-                            <p><li>{tag.category}</li></p>
+                            <p><li>{tag?.category}</li></p>
                         ))}
                         <Link to={`/outfits/${outfit._id}`}>
                             <Button variant="secondary">View</Button>

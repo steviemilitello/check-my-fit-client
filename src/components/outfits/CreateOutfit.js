@@ -18,14 +18,20 @@ const CreateOutfit = (props) => {
         img: '', description: '', date: '', tags: [],
     })
 
+    const [tag] = useState({
+        outfits: []
+    })
+
 
     const handleTagSelect = (e) => {
         const outfitTags = outfit.tags
 
         let updatedTarget
         const checked = e.target.checked
+
         if (checked) {
             updatedTarget = outfitTags.push(e.target.value)
+
         } else {
             let index = outfitTags.indexOf(e.target.value)
             outfitTags.splice(index, 1)
@@ -56,9 +62,9 @@ const CreateOutfit = (props) => {
         // e === event
         e.preventDefault()
         console.log('outfit', outfit)
+        console.log('tag', tag)
 
-        createOutfit(user, outfit)
-
+        createOutfit(user, outfit, tag)
             // if create is successful, we should navigate to the show page
             .then(res => { navigate(`/outfits/${res.data._id}`) })
 

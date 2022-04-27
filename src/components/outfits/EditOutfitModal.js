@@ -30,7 +30,15 @@ const EditOutfitModal = (props) => {
             const name = e.target.name
             let value = e.target.value
 
+            if (name === "tags" && e.target.checked) {
+                value = e.target.checked
+            } else if (name === "tags" && !e.target.checked) {
+                value = false
+            }
+
             const updatedValue = { [name]: value }
+            console.log("updatedValue", updatedValue)
+
 
             return { ...prevOutfit, ...updatedValue }
         })
