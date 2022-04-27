@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getCasualOutfits } from '../../api/tag'
+import { getTagOutfits } from '../../api/tag'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -16,7 +16,7 @@ const IndexCasualOutfits = (props) => {
     const { msgAlert } = props
 
     useEffect(() => {
-        getCasualOutfits()
+        getTagOutfits("626843f81efda0f78eee013a")
             .then(res => {
                 setOutfits(res.data.outfits)
             })
@@ -45,6 +45,7 @@ const IndexCasualOutfits = (props) => {
     let outfitCards
 
     if (outfits.length > 0) {
+        console.log('outfits', outfits)
         outfitCards = outfits.map(outfit => (
 
             < Card key={outfit._id} style={{ width: '30%' }} className="m-2" >

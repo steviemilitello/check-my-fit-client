@@ -3,6 +3,8 @@
 import React from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 
+let arr = ["62684388d744f0c94e08d96e"];
+
 const OutfitForm = (props) => {
 
     const { outfit, handleSubmit, handleTagSelect, handleChange, heading } = props
@@ -178,6 +180,7 @@ const OutfitForm = (props) => {
                     name="tags"
                     value="626844a16c8d870164be1820"
                     onChange={handleTagSelect}
+                // defaultChecked={tag.category.value}
                 // checked={''}
                 />
                 <br />

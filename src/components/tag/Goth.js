@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getGothOutfits } from '../../api/tag'
+import { getTagOutfits } from '../../api/tag'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -16,7 +16,7 @@ const IndexGothOutfits = (props) => {
     const { msgAlert } = props
 
     useEffect(() => {
-        getGothOutfits()
+        getTagOutfits("6268440ffcbff9a62fb559a3")
             .then(res => {
                 setOutfits(res.data.outfits)
             })

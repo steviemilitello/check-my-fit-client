@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getSpringLookOutfits } from '../../api/tag'
+import { getTagOutfits } from '../../api/tag'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -16,7 +16,7 @@ const IndexSpringLookOutfits = (props) => {
     const { msgAlert } = props
 
     useEffect(() => {
-        getSpringLookOutfits()
+        getTagOutfits("62684451d7b7b8aa38d05671")
             .then(res => {
                 setOutfits(res.data.outfits)
             })
