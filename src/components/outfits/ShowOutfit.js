@@ -78,15 +78,13 @@ const ShowOutfit = (props) => {
     const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('hotVotes')} disabled={setVoted} />
     const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('notVotes')} disabled={setVoted} />
 
-
-
     const handleCommentSubmit = (e) => {
-        // e === event
-        e.preventDefault()
+        createComment(user, outfit._id, { note: comment })
+            // setComment(comment => {
+            //     console.log("****e***", e)
+            // }
 
-        createComment(user, outfit, comment)
-            // if create is successful, we should navigate to the show page
-            .then(res => { navigate(`/outfits/${res.data._id}`) })
+            // .then(res => { navigate(`/outfits/${res.data._id}`) })
 
             // then we send a success message
             .then(() =>
@@ -154,17 +152,16 @@ const ShowOutfit = (props) => {
                         }
                     </Card.Footer>
                 </Card>
-                <Form>
+                <Form onSubmit={handleCommentSubmit}>
                     {
                         user ?
                             <p>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Comment</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter your Comment" />
+                                    <Form.Control type="text" placeholder="Enter your Comment" onChange={(e) => setComment(e.target.value)} />
                                     <Button
                                         variant="secondary"
-                                        type="submit"
-                                        handleCommentSubmit={handleCommentSubmit}>
+                                        type="submit">
                                         Submit
                                     </Button>
                                     <Form.Text className="text-muted">
@@ -177,7 +174,7 @@ const ShowOutfit = (props) => {
                 </Form>
 
                 {outfit.comments.map(comment => (
-                    <p>{comment.note} <br /> {comment.author}</p>
+                    <p>{comment.note} <br /> {comment.name}</p>
                 ))}
             </Container>
             <EditOutfitModal
