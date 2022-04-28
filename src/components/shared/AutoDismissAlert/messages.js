@@ -15,6 +15,8 @@ const messages = {
 	editOutfitFailure: 'The Outfit has not been updated successfully',
 	removeOutfitSuccess: 'The Outfit has been deleted',
 	removeOutfitFailure: 'Failed to delete the Outfit',
+	createCommentSuccess: 'Comment retrieved successfully',
+	createCommentFailure: 'Failed to get Comment. Please try again.',
 }
 
 module.exports = messages

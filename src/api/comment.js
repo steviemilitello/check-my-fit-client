@@ -2,7 +2,7 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // POST -> create function
-export const createComment = (user, newComment) => {
+export const createComment = (user, outfitId, newComment) => {
     return axios({
         url: `${apiUrl}/comments/${outfitId}`,
         method: 'POST',
@@ -18,7 +18,7 @@ export const createComment = (user, newComment) => {
 export const removeComment = (user, outfitId, commId) => {
     console.log('user', user)
     return axios({
-        url: `${apiUrl}/delete/${outfitId}/${commId}`,
+        url: `${apiUrl}/comments/${outfitId}/${commId}`,
         method: 'DELETE',
         headers: {
             Authorization: `Token token=${user.token}`

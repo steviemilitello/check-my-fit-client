@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
+import { createComment } from '../../api/comment'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Spinner, Container, Card, Button } from 'react-bootstrap'
+import { Spinner, Container, Card, Button, Form } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
 import Moment from 'react-moment'
-import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure } from '../shared/AutoDismissAlert/messages'
+import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure, createCommentSuccess, createCommentFailure } from '../shared/AutoDismissAlert/messages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
@@ -12,6 +13,7 @@ import { faBan } from '@fortawesome/free-solid-svg-icons'
 const ShowOutfit = (props) => {
 
     const [outfit, setOutfit] = useState(null)
+    const [comment, setComment] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const setVoted = useState(false)
@@ -77,6 +79,37 @@ const ShowOutfit = (props) => {
     const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('notVotes')} disabled={setVoted} />
 
 
+    function commentDisplay(){
+        if (outfit.comments.length > 1) {
+            return (
+                <small>{outfit.comment.note}</small>
+            )
+        }
+    }
+
+    const handleCommentSubmit = (e) => {
+        // e === event
+        e.preventDefault()
+
+        createComment(user, outfit, comment)
+            // if create is successful, we should navigate to the show page
+            .then(res => { navigate(`/outfits/${res.data._id}`) })
+
+            // then we send a success message
+            .then(() =>
+                msgAlert({
+                    heading: 'The Comment has been Added!',
+                    message: createCommentSuccess,
+                    variant: 'success',
+                }))
+            .catch(() =>
+                // if there is an error, we'll send an error message
+                msgAlert({
+                    heading: 'Failed to create a Comment!',
+                    message: createCommentFailure,
+                    variant: 'danger',
+                }))
+    }
 
     if (!outfit) {
         return (
@@ -128,6 +161,23 @@ const ShowOutfit = (props) => {
 
                     </Card.Footer>
                 </Card>
+                    <Form>
+                        <p>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Comment</Form.Label>
+                                <Form.Control type="text" placeholder="Enter your Comment" />
+                                <Button
+                                    variant="secondary"
+                                    type="submit"
+                                    handleCommentSubmit={handleCommentSubmit}>
+                                    Submit
+                                </Button>
+                                <Form.Text className="text-muted">
+                                </Form.Text>
+                            </Form.Group>                      
+                        </p>
+                    </Form>
+                    <commentDisplay/>
             </Container>
             <EditOutfitModal
                 outfit={outfit}
