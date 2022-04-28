@@ -7,15 +7,15 @@ const EditOutfitModal = (props) => {
     const { user, show, handleClose, updateOutfit, msgAlert, triggerRefresh } = props
     const [outfit, setOutfit] = useState(props.outfit)
 
-    const handleTagSelect = (e) => {
+    const handleTagSelect = (e, tag) => {
         const outfitTags = outfit.tags
 
         let updatedTarget
         const checked = e.target.checked
         if (checked) {
-            updatedTarget = outfitTags.push(e.target.value)
+            updatedTarget = outfitTags.push(tag)
         } else {
-            let index = outfitTags.indexOf(e.target.value)
+            let index = outfitTags.indexOf(tag)
             outfitTags.splice(index, 1)
             updatedTarget = outfitTags
         }

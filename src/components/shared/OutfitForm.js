@@ -1,14 +1,24 @@
 
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
-
-let arr = ["62684388d744f0c94e08d96e"];
+import { getTags } from '../../api/tag'
 
 const OutfitForm = (props) => {
+    const [tags, setTags] = useState([])
 
     const { outfit, handleSubmit, handleTagSelect, handleChange, heading } = props
 
+    useEffect(() => {
+        getTags()
+            .then(res => {
+                setTags(res.data.tags)
+            })
+    }, [])
+
+    const selectedTags = outfit.tags.map(tag => tag._id)
+
+    console.log('outfit', outfit)
     return (
         <Container className="justify-content-center">
             <h3>{heading}</h3>
@@ -37,13 +47,29 @@ const OutfitForm = (props) => {
                 <input type="hidden" value={outfit.rating} name='Hot' />
 
                 <Form.Label>Tags</Form.Label><br />
-                <Form.Check
+                {tags.map((tag, index) => {
+                    return (
+                        <Form.Check
+                            key={index}
+                            inline
+                            label={tag.category}
+                            name="tags"
+                            value={tag._id}
+                            onChange={(e) => handleTagSelect(e, tag)}
+                            defaultChecked={selectedTags.includes(tag._id)}
+                        // defaultChecked={selectedTags}
+                        />
+                    )
+                })}
+
+
+                {/* <Form.Check
                     inline
                     label="vintage"
                     name="tags"
                     value="62684388d744f0c94e08d96e"
                     onChange={handleTagSelect}
-                // checked={''}
+                // checked={handleChecked}
                 />
                 <Form.Check
                     inline
@@ -182,7 +208,7 @@ const OutfitForm = (props) => {
                     onChange={handleTagSelect}
                 // defaultChecked={tag.category.value}
                 // checked={''}
-                />
+                /> */}
                 <br />
                 <Button type='submit'>Submit</Button>
             </Form>
