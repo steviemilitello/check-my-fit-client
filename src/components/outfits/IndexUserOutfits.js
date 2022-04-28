@@ -43,13 +43,15 @@ const IndexUserOutfits = (props) => {
         return <p>No Outfits yet, go add some</p>
     }
 
+
+
     let outfitCards
 
     if (outfits.length > 0) {
         outfitCards = outfits.map(outfit => (
             < Card key={outfit._id} style={{ width: '30%' }} className="m-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
-                    <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email}</a></Card.Title>
+                    <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
                     <p><img className="outfit-image" src={outfit.img}></img></p>
 
                     <Card.Text className="card-text">
@@ -71,7 +73,7 @@ const IndexUserOutfits = (props) => {
 
     return (
         <>
-            <h3>All the Outfits</h3>
+            <h3>Profile</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>
