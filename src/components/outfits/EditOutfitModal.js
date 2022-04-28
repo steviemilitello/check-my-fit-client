@@ -2,10 +2,15 @@ import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import OutfitForm from '../shared/OutfitForm'
 import { editOutfitSuccess, editOutfitFailure } from '../shared/AutoDismissAlert/messages'
+import { faToriiGate } from '@fortawesome/free-solid-svg-icons'
 
 const EditOutfitModal = (props) => {
     const { user, show, handleClose, updateOutfit, msgAlert, triggerRefresh } = props
     const [outfit, setOutfit] = useState(props.outfit)
+
+    const [tag] = useState({
+        outfits: []
+    })
 
     const handleTagSelect = (e, tag) => {
         const outfitTags = outfit.tags
@@ -48,7 +53,7 @@ const EditOutfitModal = (props) => {
         // e === event
         e.preventDefault()
 
-        updateOutfit(user, outfit)
+        updateOutfit(user, outfit, tag)
             // if create is successful, we should navigate to the show page
             .then(() => handleClose())
             // then we send a success message

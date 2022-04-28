@@ -57,7 +57,6 @@ const OutfitForm = (props) => {
                             value={tag._id}
                             onChange={(e) => handleTagSelect(e, tag)}
                             defaultChecked={selectedTags.includes(tag._id)}
-                        // defaultChecked={selectedTags}
                         />
                     )
                 })}

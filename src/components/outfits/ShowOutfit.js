@@ -20,7 +20,7 @@ const ShowOutfit = (props) => {
     const { user, msgAlert } = props
     const { id } = useParams()
     const navigate = useNavigate()
-
+    console.log("this is outfit", outfit)
     // empty dependency array in useEffect to act like component did mount
     useEffect(() => {
         getOneOutfit(id)
@@ -79,13 +79,6 @@ const ShowOutfit = (props) => {
     const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('notVotes')} disabled={setVoted} />
 
 
-    function commentDisplay(){
-        if (outfit.comments.length > 1) {
-            return (
-                <small>{outfit.comment.note}</small>
-            )
-        }
-    }
 
     const handleCommentSubmit = (e) => {
         // e === event
@@ -120,6 +113,7 @@ const ShowOutfit = (props) => {
             </Container>
         )
     }
+
 
     return (
         <>
@@ -158,26 +152,33 @@ const ShowOutfit = (props) => {
                                 null
 
                         }
-
                     </Card.Footer>
                 </Card>
-                    <Form>
-                        <p>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Comment</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your Comment" />
-                                <Button
-                                    variant="secondary"
-                                    type="submit"
-                                    handleCommentSubmit={handleCommentSubmit}>
-                                    Submit
-                                </Button>
-                                <Form.Text className="text-muted">
-                                </Form.Text>
-                            </Form.Group>                      
-                        </p>
-                    </Form>
-                    <commentDisplay/>
+                <Form>
+                    {
+                        user ?
+                            <p>
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Comment</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter your Comment" />
+                                    <Button
+                                        variant="secondary"
+                                        type="submit"
+                                        handleCommentSubmit={handleCommentSubmit}>
+                                        Submit
+                                    </Button>
+                                    <Form.Text className="text-muted">
+                                    </Form.Text>
+                                </Form.Group>
+                            </p>
+                            :
+                            null
+                    }
+                </Form>
+
+                {outfit.comments.map(comment => (
+                    <p>{comment.note} <br /> {comment.author}</p>
+                ))}
             </Container>
             <EditOutfitModal
                 outfit={outfit}
