@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
 import { createComment } from '../../api/comment'
+import { createVote } from '../../api/vote'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button, Form } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
@@ -14,6 +15,7 @@ const ShowOutfit = (props) => {
 
     const [outfit, setOutfit] = useState(null)
     const [comment, setComment] = useState(null)
+    const [vote, setVote] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const setVoted = useState(false)
@@ -61,32 +63,35 @@ const ShowOutfit = (props) => {
             })
     }
 
-    const addVote = (voteType) => {
-        outfit[voteType] += 1
+    const addVote = (vote) => {
+        console.log("HIT VOTEEEEEEEEE");
+        createVote(user, outfit._id, vote)
+        let hotVotes = 0
+        let notVotes = 0
 
-        if (outfit.hotVotes >= outfit.notVotes) {
+        if (outfit.votes.vote === "Hot") {
+            hotVotes += 1
+        } else if (outfit.votes.vote === "Not") {
+            notVotes += 1
+        }
+
+        if (hotVotes >= notVotes) {
             outfit.rating = 'Hot'
         } else {
             outfit.rating = 'Not'
         }
-        updateOutfit(user, outfit)
+        updateOutfit(user, outfit, vote)
             .then(() => setUpdated(true))
             .then(() => setVoted(true))
-    }    // .catch(() =>)
+    }
 
 
-    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('hotVotes')} disabled={setVoted} />
-    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('notVotes')} disabled={setVoted} />
+    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('Hot')} disabled={setVoted} />
+    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('Not')} disabled={setVoted} />
 
-    const handleCommentSubmit = (e) => {
+    const handleCommentSubmit = () => {
         createComment(user, outfit._id, { note: comment })
-            // setComment(comment => {
-            //     console.log("****e***", e)
-            // }
 
-            // .then(res => { navigate(`/outfits/${res.data._id}`) })
-
-            // then we send a success message
             .then(() =>
                 msgAlert({
                     heading: 'The Comment has been Added!',
