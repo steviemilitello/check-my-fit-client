@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
-import { createComment } from '../../api/comment'
+import { createComment, removeComment } from '../../api/comment'
 import { createVote } from '../../api/vote'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button, Form } from 'react-bootstrap'
@@ -8,7 +8,7 @@ import EditOutfitModal from './EditOutfitModal'
 import Moment from 'react-moment'
 import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure, createCommentSuccess, createCommentFailure } from '../shared/AutoDismissAlert/messages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faTruckFieldUn } from '@fortawesome/free-solid-svg-icons'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const ShowOutfit = (props) => {
@@ -108,6 +108,21 @@ const ShowOutfit = (props) => {
                 }))
     }
 
+    const removeTheComment = () => {
+
+        removeComment(user, outfit._id, comment._id)
+
+            .then(() => setUpdated(true))
+            .catch(() => {
+                msgAlert({
+                    heading: 'Comment deletion failed.',
+                    message: 'failed to delete your comment',
+                    variant: 'danger',
+                })
+            })
+    }
+
+
     if (!outfit) {
         return (
             <Container fluid className="justify-content-center">
@@ -117,7 +132,6 @@ const ShowOutfit = (props) => {
             </Container>
         )
     }
-
 
     return (
         <>
@@ -179,8 +193,26 @@ const ShowOutfit = (props) => {
                     }
                 </Form>
 
-                {outfit.comments.map(comment => (
-                    <p>{comment.note} <br /> {comment.name}</p>
+                {outfit.comments.map((comment, user) => (
+                    comment.author === user.id ?
+                        (<Card>
+                            <Card.Title><strong>{comment.name}</strong></Card.Title>
+                            <Card.Body className="show-page-card">
+                                <p>{comment.note}</p>
+                                <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button>Delete</Button>
+                            </Card.Footer>
+                        </Card>)
+                        :
+                        (<Card>
+                            <Card.Title><strong>{comment.name}</strong></Card.Title>
+                            <Card.Body className="show-page-card">
+                                <p>{comment.note}</p>
+                                <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>
+                            </Card.Body>
+                        </Card>)
                 ))}
             </Container>
             <EditOutfitModal
