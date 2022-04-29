@@ -64,17 +64,18 @@ const ShowOutfit = (props) => {
     }
 
     const addVote = (vote) => {
-        console.log("HIT VOTEEEEEEEEE");
         createVote(user, outfit._id, vote)
         let hotVotes = 0
         let notVotes = 0
 
-        if (outfit.votes.vote === "Hot") {
+        if (vote === "Hot") {
             hotVotes += 1
-        } else if (outfit.votes.vote === "Not") {
+        } else if (vote === "Not") {
             notVotes += 1
         }
-
+        console.log("hotVotes", hotVotes)
+        console.log("notVotes", notVotes)
+        // console.log("vote", vote);
         if (hotVotes >= notVotes) {
             outfit.rating = 'Hot'
         } else {
