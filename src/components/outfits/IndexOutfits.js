@@ -7,8 +7,9 @@ import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissA
 
 const cardContainerLayout = {
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'center',
-    flexFlow: 'row wrap'
+    flexFlow: 'column'
 }
 
 const IndexOutfits = (props) => {

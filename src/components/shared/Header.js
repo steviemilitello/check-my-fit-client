@@ -9,23 +9,23 @@ const linkStyle = {
 }
 const authenticatedOptions = (user) => (
 	<>
-		<Nav.Item className="m-2">
+		<Nav.Item className="nav-items m-2">
 			<Link to={`outfits/user/${user._id}`} style={linkStyle}>
 				My Fits
 			</Link>
 		</Nav.Item>
 
-		<Nav.Item className="m-2">
+		<Nav.Item className="nav-items m-2">
 			<Link to='addOutfit' style={linkStyle}>
 				Add New Outfit
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="nav-items">
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="nav-items">
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -36,10 +36,10 @@ const authenticatedOptions = (user) => (
 const unauthenticatedOptions = (
 	<>
 		<Nav.Item>
-			<Link to='sign-up' style={linkStyle}>Sign Up</Link>
+			<Link className="nav-items" to='sign-up' style={linkStyle}>Sign Up</Link>
 		</Nav.Item>
 		<Nav.Item>
-			<Link to='sign-in' style={linkStyle}>Sign In</Link>
+			<Link className="nav-items" to='/' style={linkStyle}>Sign In</Link>
 		</Nav.Item>
 	</>
 )
@@ -47,7 +47,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<>
 		<Nav.Link>
-			<Link to='/outfits' style={linkStyle}>
+			<Link className="nav-items" to='/outfits' style={linkStyle}>
 				Fit Feed
 			</Link>
 		</Nav.Link>
@@ -55,9 +55,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar expand='md' className='nav-bar'>
 		<Navbar.Brand>
-			<Link to='/' style={linkStyle}>
+			<Link className="nav-items" to='/' style={linkStyle}>
 				Check My Fit
 			</Link>
 		</Navbar.Brand>

@@ -67,16 +67,16 @@ const App = () => {
 		<Fragment>
 			<Header user={user} />
 			<Routes>
-				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+				<Route path='/' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/outfits' element={<IndexOutfits msgAlert={msgAlert} />} />
 				<Route
 					path='/sign-up'
 					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
 				/>
-				<Route
+				{/* <Route
 					path='/sign-in'
 					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-				/>
+				/> */}
 				<Route
 					path='/sign-out'
 					element={

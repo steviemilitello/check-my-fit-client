@@ -90,15 +90,18 @@ const ShowOutfit = (props) => {
     const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('Hot')} disabled={setVoted} />
     const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('Not')} disabled={setVoted} />
 
-    const handleCommentSubmit = () => {
+    const handleCommentSubmit = (e) => {
+        e.preventDefault()
+        console.log('this is e', e)
         createComment(user, outfit._id, { note: comment })
-
             .then(() =>
                 msgAlert({
                     heading: 'The Comment has been Added!',
                     message: createCommentSuccess,
                     variant: 'success',
                 }))
+
+            .then(() => {navigate(`/`)})
             .catch(() =>
                 // if there is an error, we'll send an error message
                 msgAlert({

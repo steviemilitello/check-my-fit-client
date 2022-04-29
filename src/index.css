@@ -12,6 +12,19 @@ code {
     monospace;
 }
 
+.nav-bar {
+  background-color: teal;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+
+#basic-nav-dropdown {
+  color: white;
+}
+
 .outfit-image {
   width: 100%;
 }
