@@ -100,8 +100,7 @@ const ShowOutfit = (props) => {
                     message: createCommentSuccess,
                     variant: 'success',
                 }))
-
-            .then(() => {navigate(`/`)})
+            .then(() => setUpdated(true))
             .catch(() =>
                 // if there is an error, we'll send an error message
                 msgAlert({
