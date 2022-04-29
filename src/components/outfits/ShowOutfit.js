@@ -8,7 +8,7 @@ import EditOutfitModal from './EditOutfitModal'
 import Moment from 'react-moment'
 import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure, createCommentSuccess, createCommentFailure } from '../shared/AutoDismissAlert/messages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire, faTruckFieldUn } from '@fortawesome/free-solid-svg-icons'
+import { faFire } from '@fortawesome/free-solid-svg-icons'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const ShowOutfit = (props) => {
@@ -194,15 +194,15 @@ const ShowOutfit = (props) => {
                 </Form>
 
                 {outfit.comments.map((comment) => (
-                    comment.author === user._id ?
+                    comment?.author === user?._id ?
                         (<Card>
-                            <Card.Title><strong>{comment.name}</strong></Card.Title>
+                            <Card.Title><strong>{comment?.name}</strong></Card.Title>
                             <Card.Body className="show-page-card">
-                                <p>{comment.note}</p>
-                                <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>
+                                <p>{comment?.note}</p>
+                                <p>Date: <Moment format="MMMM DD, YYYY">{comment?.date}</Moment></p>
                             </Card.Body>
                             <Card.Footer>
-                                <Button onClick={() => removeTheComment(outfit._id, comment._id)}>Delete</Button>
+                                <Button onClick={() => removeTheComment(outfit?._id, comment?._id)}>Delete</Button>
                             </Card.Footer>
                         </Card>)
                         :

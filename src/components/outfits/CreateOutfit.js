@@ -50,8 +50,8 @@ const CreateOutfit = (props) => {
 
             const updatedValue = { [name]: value }
 
-            console.log('prevOutfit', prevOutfit)
-            console.log('updatedValue', updatedValue)
+            // console.log('prevOutfit', prevOutfit)
+            // console.log('updatedValue', updatedValue)
 
             return { ...prevOutfit, ...updatedValue }
         })
