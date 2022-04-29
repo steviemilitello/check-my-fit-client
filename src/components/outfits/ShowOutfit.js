@@ -56,7 +56,7 @@ const ShowOutfit = (props) => {
             .then(() => { navigate(`/outfits`) })
             .catch(() => {
                 msgAlert({
-                    heading: 'Spooky Place deletion failed.',
+                    heading: 'outfit deletion failed.',
                     message: removeOutfitFailure,
                     variant: 'danger',
                 })
@@ -108,9 +108,9 @@ const ShowOutfit = (props) => {
                 }))
     }
 
-    const removeTheComment = () => {
+    const removeTheComment = (outfit, comment) => {
 
-        removeComment(user, outfit._id, comment._id)
+        removeComment(user, outfit, comment)
 
             .then(() => setUpdated(true))
             .catch(() => {
@@ -193,8 +193,8 @@ const ShowOutfit = (props) => {
                     }
                 </Form>
 
-                {outfit.comments.map((comment, user) => (
-                    comment.author === user.id ?
+                {outfit.comments.map((comment) => (
+                    comment.author === user._id ?
                         (<Card>
                             <Card.Title><strong>{comment.name}</strong></Card.Title>
                             <Card.Body className="show-page-card">
@@ -202,7 +202,7 @@ const ShowOutfit = (props) => {
                                 <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>
                             </Card.Body>
                             <Card.Footer>
-                                <Button>Delete</Button>
+                                <Button onClick={() => removeTheComment(outfit._id, comment._id)}>Delete</Button>
                             </Card.Footer>
                         </Card>)
                         :
