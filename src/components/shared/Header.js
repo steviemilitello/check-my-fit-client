@@ -65,7 +65,7 @@ const Header = ({ user }) => (
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2'>Welcome, {user.email.split('@')[0]}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions(user) : unauthenticatedOptions}
