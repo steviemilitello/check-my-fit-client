@@ -124,6 +124,15 @@ const ShowOutfit = (props) => {
             })
     }
 
+    let hotVote = 0
+    let notVote = 0
+    outfit?.votes?.map(vote => {
+        if (vote.vote === "Hot") {
+            hotVote += 1
+        } else if (vote.vote === "Not")
+            notVote += 1
+    }
+    )
 
     if (!outfit) {
         return (
@@ -159,6 +168,9 @@ const ShowOutfit = (props) => {
                             outfit.owner && user && (user._id === outfit.owner._id)
                                 ?
                                 <>
+                                    <p>Hot votes: {hotVote}</p>
+                                    <p>Not votes: {notVote}</p>
+                                    <voteShow />
                                     <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                                         Edit Outfit
                                     </Button>
@@ -168,7 +180,6 @@ const ShowOutfit = (props) => {
                                 </>
 
                                 :
-
                                 null
 
                         }
