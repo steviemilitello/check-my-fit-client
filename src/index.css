@@ -16,13 +16,60 @@ code {
   background-color: teal;
 }
 
+.nav-username {
+  color: white;
+  font-size: 18px;
+}
+
 .nav-items {
   display: flex;
   align-items: center;
+  padding: 2px;
 }
 
 #basic-nav-dropdown {
   color: white;
+}
+
+.sign-in-page-div {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/0cadQge.jpg");
+  background-size: cover;
+}
+
+.sign-in-page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 5px;
+  align-self: flex-end;
+
+}
+
+.sign-in-text {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px;
+  color: black;
+} 
+
+.sign-in-form {
+  padding: 10px;
+}
+
+.auth-form-label {
+  padding: 5px;
+  margin: 1px;
+}
+
+.auth-form-control {
+  padding: 5px;
+  margin: 5px;
 }
 
 .outfit-image {
@@ -35,6 +82,11 @@ code {
 
 .show-page-card {
   padding: 20px;
+}
+
+.submit-button {
+  font-size: 20px;
+  padding: 50px;
 }
 
 

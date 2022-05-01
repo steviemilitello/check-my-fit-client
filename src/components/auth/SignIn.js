@@ -6,6 +6,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Button'
 
 const SignIn = (props) => {
     // constructor(props) {
@@ -55,13 +56,15 @@ const SignIn = (props) => {
     }
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign In</h3>
-                <Form onSubmit={onSignIn}>
+        <div className='sign-in-page-div row'>
+            <h2 className="sign-in-text">Is your fit straight fire?<br/>Ask the world and get your fit checked!</h2>
+            <div className='sign-in-page col-sm-10 col-md-8 mx-1 mt-5'>
+                <Card style={{ textAlign: 'left', height: '30%', width: '50%' }} className="sign-in-card mb-2" variant="light">
+                <Form className="sign-in-form mb-3" onSubmit={onSignIn}>
+                    <h3>Sign In</h3>
                     <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
                         <Form.Control
+                            className="auth-form-control"
                             required
                             type='email'
                             name='email'
@@ -71,8 +74,8 @@ const SignIn = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
                         <Form.Control
+                            className="auth-form-control"
                             required
                             name='password'
                             value={password}
@@ -81,10 +84,15 @@ const SignIn = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
-                    </Button>
+                    <Form.Group controlId='button'>
+                        <div className="d-grid gap-2">
+                            <Button className="submit-button" size="lg" variant='dark' type='submit'>
+                                Submit
+                            </Button>
+                        </div>
+                    </Form.Group>
                 </Form>
+                </Card>
             </div>
         </div>
     )
