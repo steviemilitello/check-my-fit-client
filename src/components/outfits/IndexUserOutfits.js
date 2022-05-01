@@ -43,10 +43,6 @@ const IndexUserOutfits = (props) => {
         return <p>No Outfits yet, go add some</p>
     }
 
-    let outfitOrder = outfits.map(outfit => {
-        outfit.votes.length.sort()
-    })
-
     let outfitCards
 
     if (outfits.length > 0) {

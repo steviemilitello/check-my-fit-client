@@ -18,7 +18,7 @@ const ShowOutfit = (props) => {
     const [vote, setVote] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
-    const setVoted = useState(false)
+    // const [voted, setVoted] = useState(false)
     const { user, msgAlert } = props
     const { id } = useParams()
     const navigate = useNavigate()
@@ -65,34 +65,35 @@ const ShowOutfit = (props) => {
 
     const addVote = (vote) => {
         createVote(user, outfit._id, vote)
-        let hotVotes = 0
-        let notVotes = 0
+        const votes = outfit?.votes?.map(vote => {
+            return vote.vote
+        })
 
-        if (vote === "Hot") {
-            hotVotes += 1
-        } else if (vote === "Not") {
-            notVotes += 1
-        }
-        console.log("hotVotes", hotVotes)
-        console.log("notVotes", notVotes)
-        // console.log("vote", vote);
-        if (hotVotes >= notVotes) {
-            outfit.rating = 'Hot'
-        } else {
-            outfit.rating = 'Not'
-        }
         updateOutfit(user, outfit, vote)
             .then(() => setUpdated(true))
-            .then(() => setVoted(true))
+        // .then(() => setVoted(true))
     }
 
 
-    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('Hot')} disabled={setVoted} />
-    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('Not')} disabled={setVoted} />
+
+    const didUserVote = () => {
+        if (outfit && user) {
+            const voters = outfit?.votes?.map(vote => {
+                return vote.voter
+            })
+            // setVoted(voters.includes(user._id))
+            return voters.includes(user._id)
+        } else {
+            return false
+        }
+    }
+
+
+    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('Hot')} disabled={didUserVote()} />
+    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('Not')} disabled={didUserVote()} />
 
     const handleCommentSubmit = (e) => {
         e.preventDefault()
-        console.log('this is e', e)
         createComment(user, outfit._id, { note: comment })
             .then(() =>
                 msgAlert({
@@ -134,6 +135,23 @@ const ShowOutfit = (props) => {
     }
     )
 
+    const showRating = () => {
+        const votes = outfit?.votes?.map(vote => {
+            return vote.vote
+        })
+        // console.log("votes in addVote", votes)
+
+        const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
+        const hotCount = countOccurrences(votes, 'Hot')
+        const notCount = countOccurrences(votes, 'Not')
+
+        // console.log("hotVotes & notVotes", hotCount, notCount)
+        if (hotCount >= notCount) {
+            return outfit.rating = 'Hot'
+        } else {
+            return outfit.rating = 'Not'
+        }
+    }
 
     if (!outfit) {
         return (
@@ -156,11 +174,11 @@ const ShowOutfit = (props) => {
                         <img className="show-page-img" src={outfit.img}></img>
                         <Card.Text className="show-page-card">
                             <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
-                            <p>Description: {outfit.description}</p>
-                            <p>Rating: {outfit?.rating}</p>
+                            <p>Description: {outfit?.description}</p>
+                            <p>Rating: {showRating()}</p>
                             <p>Tags:</p>
                             {outfit.tags.map(tag => (
-                                <p><li>{tag.category}</li></p>
+                                <p><li>{tag?.category}</li></p>
                             ))}
 
                             <h4>{hot} or {not}</h4>
