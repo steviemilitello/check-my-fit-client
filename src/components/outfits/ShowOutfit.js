@@ -100,8 +100,7 @@ const ShowOutfit = (props) => {
                     message: createCommentSuccess,
                     variant: 'success',
                 }))
-
-            .then(() => {navigate(`/`)})
+            .then(() => setUpdated(true))
             .catch(() =>
                 // if there is an error, we'll send an error message
                 msgAlert({
@@ -125,6 +124,16 @@ const ShowOutfit = (props) => {
             })
     }
 
+    let hotVote = 0
+    let notVote = 0
+    outfit?.votes?.map(vote => {
+        if (vote.vote === "Hot") {
+            hotVote += 1
+        } else if (vote.vote === "Not")
+            notVote += 1
+    }
+    )
+
 
     if (!outfit) {
         return (
@@ -135,6 +144,7 @@ const ShowOutfit = (props) => {
             </Container>
         )
     }
+
 
     return (
         <>
@@ -147,19 +157,25 @@ const ShowOutfit = (props) => {
                         <Card.Text className="show-page-card">
                             <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
                             <p>Description: {outfit.description}</p>
-                            <p>Rating: {outfit.rating}</p>
+                            <p>Rating: {outfit?.rating}</p>
                             <p>Tags:</p>
                             {outfit.tags.map(tag => (
                                 <p><li>{tag.category}</li></p>
                             ))}
+
                             <h4>{hot} or {not}</h4>
+
                         </Card.Text>
+
                     </Card.Body>
                     <Card.Footer className="show-footer">
                         {
                             outfit.owner && user && (user._id === outfit.owner._id)
                                 ?
                                 <>
+                                    <p>Hot votes: {hotVote}</p>
+                                    <p>Not votes: {notVote}</p>
+                                    <voteShow />
                                     <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                                         Edit Outfit
                                     </Button>
@@ -169,7 +185,6 @@ const ShowOutfit = (props) => {
                                 </>
 
                                 :
-
                                 null
 
                         }
@@ -199,7 +214,7 @@ const ShowOutfit = (props) => {
                 {outfit.comments.map((comment) => (
                     comment?.author === user?._id ?
                         (<Card>
-                            <Card.Title><strong>{comment?.name}</strong></Card.Title>
+                            <Card.Title><a href={`/outfits/user/${comment?.author}`}>{comment?.name}</a></Card.Title>
                             <Card.Body className="show-page-card">
                                 <p>{comment?.note}</p>
                                 <p>Date: <Moment format="MMMM DD, YYYY">{comment?.date}</Moment></p>
@@ -210,7 +225,7 @@ const ShowOutfit = (props) => {
                         </Card>)
                         :
                         (<Card>
-                            <Card.Title><strong>{comment.name}</strong></Card.Title>
+                            <Card.Title><a href={`/outfits/user/${comment?.author}`}>{comment?.name}</a></Card.Title>
                             <Card.Body className="show-page-card">
                                 <p>{comment.note}</p>
                                 <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>

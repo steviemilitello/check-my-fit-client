@@ -20,12 +20,14 @@
 |------------------|-------------------|-------|
 | `/sign-up`       | `SignUp`    | No |
 | `/sign-in`       | `SignIn`    | No |
-| `/fits`  | `Index`     | No |
-| `/fits/:fitId`  | `Show`| Yes |
-| `/addfit`      | `Create`   | Yes | 
-| `/myfits/:userId`  | `Index`| Yes |
-| `/change-password` | `ChangePassword`  | Yes |
-| `/sign-out`        | `SignOut`   | Yes |
+| `/outfits`  | `Index`     | No |
+| `/outfits/:outfitId`  | `Show`| Yes |
+| `/outfits/:outfitId`  | `Show`| Yes |
+| `/outfits/user/:userId`  | `Update`| No |
+| `/outfits`      | `Create`   | Yes | 
+| `/tags/:tagId`  | `Index`| No |
+| `/tags/:outfitId`  | `Post`| Yes |
+| `/vote/:outfitId`   | `Post`   | Yes |
 
 
 # Wireframe:
