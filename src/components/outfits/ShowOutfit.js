@@ -11,14 +11,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 
+const fireIcon = <FontAwesomeIcon icon={faFire} />
+const notIcon = <FontAwesomeIcon icon={faBan} />
+
 const ShowOutfit = (props) => {
 
     const [outfit, setOutfit] = useState(null)
     const [comment, setComment] = useState(null)
-    const [vote, setVote] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
-    // const [voted, setVoted] = useState(false)
     const { user, msgAlert } = props
     const { id } = useParams()
     const navigate = useNavigate()
@@ -82,15 +83,12 @@ const ShowOutfit = (props) => {
                 return vote.voter
             })
             // setVoted(voters.includes(user._id))
-            return voters.includes(user._id)
+            return voters?.includes(user._id)
         } else {
             return false
         }
     }
 
-
-    const hot = <FontAwesomeIcon icon={faFire} onClick={() => addVote('Hot')} disabled={didUserVote()} />
-    const not = <FontAwesomeIcon icon={faBan} onClick={() => addVote('Not')} disabled={didUserVote()} />
 
     const handleCommentSubmit = (e) => {
         e.preventDefault()
@@ -139,7 +137,8 @@ const ShowOutfit = (props) => {
         const votes = outfit?.votes?.map(vote => {
             return vote.vote
         })
-        // console.log("votes in addVote", votes)
+
+        console.log("votes in addVote", votes)
 
         const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
         const hotCount = countOccurrences(votes, 'Hot')
@@ -181,7 +180,20 @@ const ShowOutfit = (props) => {
                                 <p><li>{tag?.category}</li></p>
                             ))}
 
-                            <h4>{hot} or {not}</h4>
+                            {/* <h4>{hot} or {not}</h4> */}
+                            <Button
+                                className="btn btn-dark"
+                                onClick={() => addVote('Hot')}
+                                disabled={didUserVote()}
+                            >
+                                {fireIcon}</Button>
+                            <h4>or</h4>
+                            <Button
+                                className="btn btn-dark"
+                                onClick={() => addVote('Not')}
+                                disabled={didUserVote()}
+                            >
+                                {notIcon}</Button>
 
                         </Card.Text>
 

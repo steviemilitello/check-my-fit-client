@@ -47,6 +47,7 @@ const IndexOutfits = (props) => {
     }
 
 
+
     let outfitCards
 
     if (outfits.length > 0) {
@@ -60,7 +61,6 @@ const IndexOutfits = (props) => {
                     <Card.Text className="card-text">
                         <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
                         <p>Description: {outfit.description}</p>
-                        <p>Rating: {outfit.rating}</p>
                         <p>Tags:</p>
                         {outfit.tags.map(tag => (
                             <p><li>{tag.category}</li></p>

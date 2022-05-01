@@ -55,7 +55,6 @@ const IndexUserOutfits = (props) => {
                     <Card.Text className="card-text">
                         <p>Date: {outfit.date}</p>
                         <p>Description: {outfit.description}</p>
-                        <p>Rating: {outfit.rating}</p>
                         <p>Tags:</p>
                         {outfit.tags.map(tag => (
                             <p><li>{tag.category}</li></p>
