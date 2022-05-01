@@ -11,7 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.voteIcon {
+  
+}
 
 .nav-bar {
   background-color: teal;
@@ -39,3 +41,6 @@ code {
 }
 
 
+:disabled {
+  color: red;
+}

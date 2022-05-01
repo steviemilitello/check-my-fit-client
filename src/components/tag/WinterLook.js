@@ -71,7 +71,7 @@ const IndexWinterLookOutfits = (props) => {
 
     return (
         <>
-            <h3>All the Outfits</h3>
+            <h3>Winter Looks</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>

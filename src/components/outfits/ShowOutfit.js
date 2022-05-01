@@ -134,6 +134,7 @@ const ShowOutfit = (props) => {
     }
     )
 
+
     if (!outfit) {
         return (
             <Container fluid className="justify-content-center">
@@ -143,6 +144,7 @@ const ShowOutfit = (props) => {
             </Container>
         )
     }
+
 
     return (
         <>
@@ -160,8 +162,11 @@ const ShowOutfit = (props) => {
                             {outfit.tags.map(tag => (
                                 <p><li>{tag.category}</li></p>
                             ))}
+
                             <h4>{hot} or {not}</h4>
+
                         </Card.Text>
+
                     </Card.Body>
                     <Card.Footer className="show-footer">
                         {
