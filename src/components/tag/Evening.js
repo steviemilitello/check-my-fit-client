@@ -71,7 +71,7 @@ const IndexEveningOutfits = (props) => {
 
     return (
         <>
-            <h3>All the Outfits</h3>
+            <h3>Evening Wear</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>
