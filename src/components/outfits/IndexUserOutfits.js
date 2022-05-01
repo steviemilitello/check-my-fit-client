@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import { useParams, Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
 
+
 const cardContainerLayout = {
     display: 'flex',
     justifyContent: 'center',
@@ -42,10 +43,6 @@ const IndexUserOutfits = (props) => {
     } else if (outfits.length === 0) {
         return <p>No Outfits yet, go add some</p>
     }
-
-    let outfitOrder = outfits.map(outfit => {
-        outfit.votes.length.sort()
-    })
 
     let outfitCards
 

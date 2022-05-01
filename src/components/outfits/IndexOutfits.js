@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getAllOutfits } from '../../api/outfit'
-import { Card, Button, ButtonToolbar } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
@@ -10,6 +10,12 @@ const cardContainerLayout = {
     alignItems: 'center',
     justifyContent: 'center',
     flexFlow: 'column'
+}
+
+const linkStyle = {
+    fontWeight: 'bold',
+	color: 'black',
+	textDecoration: 'none'
 }
 
 const IndexOutfits = (props) => {
@@ -51,23 +57,25 @@ const IndexOutfits = (props) => {
 
     if (outfits.length > 0) {
         outfitCards = outfits.map(outfit => (
-            < Card key={outfit._id} style={{ width: '30%' }} className="mb-2" >
+            < Card key={outfit._id} style={{ width: '30%' }} className="index-page-cards mb-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
-                    <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
-
+                    <div className="card-header-div row">
+                    <Card.Title className="d-flex row-wrap"> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
+                    <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p>
+                        
+                    </div>
                     <p><img class="outfit-image" src={outfit.img}></img></p>
-
+                        <div className="align-content-flex-end">
+                            <p className="index-card-rating">{outfit.rating}</p>
+                        </div>
                     <Card.Text className="card-text">
-                        <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
-                        <p>Description: {outfit.description}</p>
-                        <p>Rating: {outfit.rating}</p>
-                        <p>Tags:</p>
+                        <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
                         {outfit.tags.map(tag => (
-                            <p><li>{tag.category}</li></p>
+                            <p><a href={`/tags/${tag.category}`}>#{tag.category}</a></p>
                         ))}
-                        <p><Link to={`/outfits/${outfit._id}`}>
-                            <Button variant="secondary">View</Button>
-                        </Link></p>
+                            <p><Link to={`/outfits/${outfit._id}`}>
+                                <Button variant="dark">View</Button>
+                            </Link></p>
                     </Card.Text>
                 </Card.Body>
             </Card >
