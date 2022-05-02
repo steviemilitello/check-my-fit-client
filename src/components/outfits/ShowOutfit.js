@@ -199,19 +199,21 @@ const ShowOutfit = (props) => {
                                 ))}
                                 <p></p>
 
-                                <Button
-                                    className="btn btn-dark"
-                                    onClick={() => addVote('Hot')}
-                                    disabled={didUserVote()}
-                                >
-                                    {fireIcon}</Button>
-                                <h4>or</h4>
-                                <Button
-                                    className="btn btn-dark"
-                                    onClick={() => addVote('Not')}
-                                    disabled={didUserVote()}
-                                >
-                                    {notIcon}</Button>
+                                <div className="d-flex row-nowrap align-items-end">
+                                    <Button
+                                        className="hot-or-not-button btn btn-dark"
+                                        onClick={() => addVote('Hot')}
+                                        disabled={didUserVote()}
+                                    >
+                                        {fireIcon}</Button>
+                                    <h5>or</h5>
+                                    <Button
+                                        className="hot-or-not-button btn btn-dark"
+                                        onClick={() => addVote('Not')}
+                                        disabled={didUserVote()}
+                                    >
+                                        {notIcon}</Button>
+                                </div>
 
                             </Card.Text>
                         </div>
