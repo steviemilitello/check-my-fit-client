@@ -71,7 +71,7 @@ const IndexOutfits = (props) => {
                         <p>Description: {outfit.description}</p>
                         <p>Tags:</p>
                         {outfit.tags.map(tag => (
-                            <p><a href={`/tags/${tag.category}`}>#{tag.category}</a></p>
+                            <p><a href={`/tags/${tag.category.replace(/\s+/g, '')}`}>#{tag.category.replace(/\s+/g, '')}</a></p>
                         ))}
                         <p><Link to={`/outfits/${outfit._id}`}>
                             <Button variant="dark">View</Button>

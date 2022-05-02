@@ -195,7 +195,7 @@ const ShowOutfit = (props) => {
                                     <p className="index-card-rating">{outfit.rating}</p>
                                 </div>
                                 {outfit.tags.map(tag => (
-                                    <a style={{ textDecoration: 'none' }} href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
+                                    <a style={{ textDecoration: 'none' }} href={`/tags/${tag.category.replace(/\s+/g, '')}`}>#{tag.category.replace(/\s+/g, '')}&nbsp;</a>
                                 ))}
                                 <p></p>
 
