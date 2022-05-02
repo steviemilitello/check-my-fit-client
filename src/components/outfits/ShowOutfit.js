@@ -14,7 +14,6 @@ import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const fireIcon = <FontAwesomeIcon icon={faFire} />
 const notIcon = <FontAwesomeIcon icon={faBan} />
-
 const linkStyle = {
     fontWeight: 'bold',
     color: 'black',

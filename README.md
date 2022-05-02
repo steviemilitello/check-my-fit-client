@@ -30,7 +30,7 @@
 | `/vote/:outfitId`   | `Post`   | Yes |
 
 
-# Wireframe:
+# Wireframes:
 ## Sign in page:
 ![sign in page](./public/signin.png)
 ## Index Page of all the Outfits: 
