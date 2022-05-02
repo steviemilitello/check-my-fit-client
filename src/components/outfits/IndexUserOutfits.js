@@ -65,7 +65,9 @@ const IndexUserOutfits = (props) => {
                             <p className="index-card-rating">{outfit.rating}</p>
                         </div>
                     <Card.Text className="card-text">
+                    
                         <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
+
                         {outfit.tags.map(tag => (
                             <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
                         ))}
