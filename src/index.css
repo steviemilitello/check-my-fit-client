@@ -173,6 +173,10 @@ code {
   font-size: 20px;
 }
 
+.hot-or-not-button {
+  margin: 5px;
+}
+
 
 :disabled {
   color: red;

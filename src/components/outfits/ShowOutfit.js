@@ -199,21 +199,21 @@ const ShowOutfit = (props) => {
                                 <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
                             ))}
                             <p></p>
-                            <h4>{hot} or {not}</h4>
-                            <Button
-                                className="btn btn-dark"
-                                onClick={() => addVote('Hot')}
-                                disabled={didUserVote()}
-                            >
-                                {fireIcon}</Button>
-                            <h4>or</h4>
-                            <Button
-                                className="btn btn-dark"
-                                onClick={() => addVote('Not')}
-                                disabled={didUserVote()}
-                            >
-                                {notIcon}</Button>>>>>>>> main
-
+                            <div className="d-flex row-nowrap align-items-end">
+                                <Button
+                                    className="hot-or-not-button btn btn-dark"
+                                    onClick={() => addVote('Hot')}
+                                    disabled={didUserVote()}
+                                >
+                                    {fireIcon}</Button>
+                                <h5>or</h5>
+                                <Button
+                                    className="hot-or-not-button btn btn-dark"
+                                    onClick={() => addVote('Not')}
+                                    disabled={didUserVote()}
+                                >
+                                    {notIcon}</Button>
+                             </div>
                         </Card.Text>
                         </div>
                     </Card.Body>

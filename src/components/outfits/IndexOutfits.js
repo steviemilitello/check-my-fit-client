@@ -57,7 +57,7 @@ const IndexOutfits = (props) => {
     if (outfits.length > 0) {
 
         outfitCards = outfits.map(outfit => (
-            < Card key={outfit._id} style={{ width: '30%' }} className="index-page-cards mb-2" >
+            (<Card key={outfit._id} style={{ width: '30%' }} className="index-page-cards mb-2" >
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
                     <div className="card-header-div row">
                         <Card.Title className="d-flex row-wrap"> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
@@ -81,7 +81,7 @@ const IndexOutfits = (props) => {
                     </Card.Body>
                 </Card >
             )
-        })
+        ))
     }
 
     return (
