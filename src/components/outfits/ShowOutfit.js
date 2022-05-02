@@ -14,11 +14,10 @@ import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 const fireIcon = <FontAwesomeIcon icon={faFire} />
 const notIcon = <FontAwesomeIcon icon={faBan} />
-  
 const linkStyle = {
     fontWeight: 'bold',
-	color: 'black',
-	textDecoration: 'none'
+    color: 'black',
+    textDecoration: 'none'
 }
 
 const ShowOutfit = (props) => {
@@ -182,39 +181,39 @@ const ShowOutfit = (props) => {
 
     return (
         <>
-            <Container style={{width: '100%'}} className="fluid mt-3 d-flex row justify-content-center">
-                <Card className="show-page-card" style={{ width: '70%' }}> 
+            <Container style={{ width: '100%' }} className="fluid mt-3 d-flex row justify-content-center">
+                <Card className="show-page-card" style={{ width: '70%' }}>
                     <Card.Header></Card.Header>
                     <Card.Body className="d-flex align-self-center">
-                            <div className="d-flex row justify-content-start">
-                        <Card.Title> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
+                        <div className="d-flex row justify-content-start">
+                            <Card.Title> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
                             <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p>
-                            <img style={{ width: "100%" }}className="show-page-img" src={outfit.img}></img>
-                        <Card.Text className="show-page-card-text d-flex row justify-content-center">
-                            <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
-                            <div className="align-content-flex-end">
-                                <p className="index-card-rating">{outfit.rating}</p>
-                            </div>
-                            {outfit.tags.map(tag => (
-                                <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
-                            ))}
-                            <p></p>
-                            <div className="d-flex row-nowrap align-items-end">
+                            <img style={{ width: "100%" }} className="show-page-img" src={outfit.img}></img>
+                            <Card.Text className="show-page-card-text d-flex row justify-content-center">
+                                <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
+                                <div className="align-content-flex-end">
+                                    <p className="index-card-rating">{outfit.rating}</p>
+                                </div>
+                                {outfit.tags.map(tag => (
+                                    <a style={{ textDecoration: 'none' }} href={`/tags/${tag.category.replace(/\s+/g, '')}`}>#{tag.category.replace(/\s+/g, '')}&nbsp;</a>
+                                ))}
+                                <p></p>
+
                                 <Button
-                                    className="hot-or-not-button btn btn-dark"
+                                    className="btn btn-dark"
                                     onClick={() => addVote('Hot')}
                                     disabled={didUserVote()}
                                 >
                                     {fireIcon}</Button>
-                                <h5>or</h5>
+                                <h4>or</h4>
                                 <Button
-                                    className="hot-or-not-button btn btn-dark"
+                                    className="btn btn-dark"
                                     onClick={() => addVote('Not')}
                                     disabled={didUserVote()}
                                 >
                                     {notIcon}</Button>
-                             </div>
-                        </Card.Text>
+
+                            </Card.Text>
                         </div>
                     </Card.Body>
                     <Card.Footer className="show-footer">
@@ -270,7 +269,7 @@ const ShowOutfit = (props) => {
                             <Card.Body>
                                 <div className="comment-date">
                                     <small><Moment format="MMMM DD, YYYY">{comment.date}</Moment></small>
-                                    <CloseButton className="comment-button" variant="light" onClick={() => removeTheComment(outfit?._id, comment?._id)}/>
+                                    <CloseButton className="comment-button" variant="light" onClick={() => removeTheComment(outfit?._id, comment?._id)} />
                                 </div>
                                 <div className="comment-card-body d-flex row-nowrap">
                                     <a className="comment-card-username" style={linkStyle} href={`/outfits/user/${comment?.author}`}>{comment?.name}</a>

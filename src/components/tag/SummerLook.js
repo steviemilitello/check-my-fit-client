@@ -13,8 +13,8 @@ const cardContainerLayout = {
 
 const linkStyle = {
     fontWeight: 'bold',
-	color: 'black',
-	textDecoration: 'none'
+    color: 'black',
+    textDecoration: 'none'
 }
 
 const IndexSummerLookOutfits = (props) => {
@@ -61,18 +61,18 @@ const IndexSummerLookOutfits = (props) => {
                         <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p>
                     </div>
                     <p><img class="outfit-image" src={outfit.img}></img></p>
-                        <div className="align-content-flex-end">
-                            <p className="index-card-rating">{outfit.rating}</p>
-                        </div>
+                    <div className="align-content-flex-end">
+                        <p className="index-card-rating">{outfit.rating}</p>
+                    </div>
                     <Card.Text className="card-text">
                         <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
                         {outfit.tags.map(tag => (
-                            <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
+                            <a style={{ textDecoration: 'none' }} href={`/tags/${tag.category.replace(/\s+/g, '')}`}>#{tag.category.replace(/\s+/g, '')}&nbsp;</a>
                         ))}
-                            <p></p>
-                            <p><Link to={`/outfits/${outfit._id}`}>
-                                <Button variant="dark">View</Button>
-                            </Link></p>
+                        <p></p>
+                        <p><Link to={`/outfits/${outfit._id}`}>
+                            <Button variant="dark">View</Button>
+                        </Link></p>
                     </Card.Text>
                 </Card.Body>
             </Card >
@@ -81,7 +81,7 @@ const IndexSummerLookOutfits = (props) => {
 
     return (
         <>
-            <h3 style={{textAlign: 'center', padding: '10px'}}>Summer Looks</h3>
+            <h3 style={{ textAlign: 'center', padding: '10px' }}>Summer Looks</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>

@@ -61,25 +61,24 @@ const IndexOutfits = (props) => {
                 <Card.Body className="card-body d-flex flex-column justify-content-end">
                     <div className="card-header-div row">
                         <Card.Title className="d-flex row-wrap"> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
-                        <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p> 
+                        <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p>
                     </div>
                     <p><img class="outfit-image" src={outfit.img}></img></p>
-                        <div className="align-content-flex-end">
-                            <p className="index-card-rating">{outfit.rating}</p>
-                        </div>
+                    <div className="align-content-flex-end">
+                        <p className="index-card-rating">{outfit.rating}</p>
+                    </div>
                     <Card.Text className="card-text">
-                        <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
+                        <p>Description: {outfit.description}</p>
+                        <p>Tags:</p>
                         {outfit.tags.map(tag => (
-                            <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
+                            <p><a href={`/tags/${tag.category.replace(/\s+/g, '')}`}>#{tag.category.replace(/\s+/g, '')}</a></p>
                         ))}
-                            <p></p>
-                           
-                            <p><Link to={`/outfits/${outfit._id}`}>
-                                <Button variant="dark">View</Button>
-                            </Link></p>
-                        </Card.Text>
-                    </Card.Body>
-                </Card >
+                        <p><Link to={`/outfits/${outfit._id}`}>
+                            <Button variant="dark">View</Button>
+                        </Link></p>
+                    </Card.Text>
+                </Card.Body>
+            </Card >
             )
         ))
     }
