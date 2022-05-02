@@ -52,7 +52,6 @@ const IndexOutfits = (props) => {
         return <p>No Outfits yet, go add some</p>
     }
 
-
     let outfitCards
 
     if (outfits.length > 0) {
@@ -87,7 +86,6 @@ const IndexOutfits = (props) => {
 
     return (
         <>
-            <h3>All the Outfits</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>
