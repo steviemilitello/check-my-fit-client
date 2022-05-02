@@ -52,7 +52,6 @@ const IndexOutfits = (props) => {
         return <p>No Outfits yet, go add some</p>
     }
 
-
     let outfitCards
 
     if (outfits.length > 0) {
@@ -71,8 +70,9 @@ const IndexOutfits = (props) => {
                     <Card.Text className="card-text">
                         <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
                         {outfit.tags.map(tag => (
-                            <p><a href={`/tags/${tag.category}`}>#{tag.category}</a></p>
+                            <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
                         ))}
+                            <p></p>
                             <p><Link to={`/outfits/${outfit._id}`}>
                                 <Button variant="dark">View</Button>
                             </Link></p>
@@ -84,7 +84,6 @@ const IndexOutfits = (props) => {
 
     return (
         <>
-            <h3>All the Outfits</h3>
             <div style={cardContainerLayout}>
                 {outfitCards}
             </div>
