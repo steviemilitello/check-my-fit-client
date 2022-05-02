@@ -3,7 +3,7 @@ import { getOneOutfit, updateOutfit, removeOutfit } from '../../api/outfit'
 import { createComment, removeComment } from '../../api/comment'
 import { createVote } from '../../api/vote'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Spinner, Container, Card, Button, Form } from 'react-bootstrap'
+import { Spinner, Container, Card, Button, Form, CloseButton } from 'react-bootstrap'
 import EditOutfitModal from './EditOutfitModal'
 import Moment from 'react-moment'
 import { showOutfitSuccess, showOutfitFailure, removeOutfitSuccess, removeOutfitFailure, createCommentSuccess, createCommentFailure } from '../shared/AutoDismissAlert/messages'
@@ -11,8 +11,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 
+
 const fireIcon = <FontAwesomeIcon icon={faFire} />
 const notIcon = <FontAwesomeIcon icon={faBan} />
+  
+const linkStyle = {
+    fontWeight: 'bold',
+	color: 'black',
+	textDecoration: 'none'
+}
 
 const ShowOutfit = (props) => {
 
@@ -175,22 +182,24 @@ const ShowOutfit = (props) => {
 
     return (
         <>
-            <Container className="fluid mt-5">
-                <Card>
-                    <Card.Header className='card-title'></Card.Header>
-                    <Card.Body className="d-flex justify-content-start">
-                        <Card.Title> <a href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
-                        <img className="show-page-img" src={outfit.img}></img>
-                        <Card.Text className="show-page-card">
-                            <p>Date: <Moment format="MMMM DD, YYYY">{outfit.date}</Moment></p>
-                            <p>Description: {outfit?.description}</p>
-                            <p>Rating: {showRating()}</p>
-                            <p>Tags:</p>
+            <Container style={{width: '100%'}} className="fluid mt-3 d-flex row justify-content-center">
+                <Card className="show-page-card" style={{ width: '70%' }}> 
+                    <Card.Header></Card.Header>
+                    <Card.Body className="d-flex align-self-center">
+                            <div className="d-flex row justify-content-start">
+                        <Card.Title> <a style={linkStyle} href={`/outfits/user/${outfit?.owner?._id}`}>{outfit?.owner?.email.split('@')[0]}</a></Card.Title>
+                            <p className="index-card-date d-flex"><small><Moment format="MMMM DD, YYYY">{outfit.date}</Moment></small></p>
+                            <img style={{ width: "100%" }}className="show-page-img" src={outfit.img}></img>
+                        <Card.Text className="show-page-card-text d-flex row justify-content-center">
+                            <p><b>{outfit.owner.email.split('@')[0]}</b> {outfit.description}</p>
+                            <div className="align-content-flex-end">
+                                <p className="index-card-rating">{outfit.rating}</p>
+                            </div>
                             {outfit.tags.map(tag => (
-                                <p><li>{tag?.category}</li></p>
+                                <a style={{ textDecoration: 'none' }}href={`/tags/${tag.category}`}>#{tag.category}&nbsp;</a>
                             ))}
-
-                            {/* <h4>{hot} or {not}</h4> */}
+                            <p></p>
+                            <h4>{hot} or {not}</h4>
                             <Button
                                 className="btn btn-dark"
                                 onClick={() => addVote('Hot')}
@@ -203,10 +212,10 @@ const ShowOutfit = (props) => {
                                 onClick={() => addVote('Not')}
                                 disabled={didUserVote()}
                             >
-                                {notIcon}</Button>
+                                {notIcon}</Button>>>>>>>> main
 
                         </Card.Text>
-
+                        </div>
                     </Card.Body>
                     <Card.Footer className="show-footer">
                         {
@@ -230,18 +239,22 @@ const ShowOutfit = (props) => {
                         }
                     </Card.Footer>
                 </Card>
-                <Form onSubmit={handleCommentSubmit}>
+                <Form style={{ width: '70%' }} onSubmit={handleCommentSubmit}>
                     {
                         user ?
                             <p>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Comment</Form.Label>
+                                    <Form.Label><b>Comment</b></Form.Label>
                                     <Form.Control type="text" placeholder="Enter your Comment" onChange={(e) => setComment(e.target.value)} />
-                                    <Button
-                                        variant="secondary"
-                                        type="submit">
-                                        Submit
-                                    </Button>
+                                    <div className="submit-button-div">
+                                        <Button
+                                            className="submit-button"
+                                            style={{ margin: '10px', padding: '7px' }}
+                                            variant="dark"
+                                            type="submit">
+                                            Submit
+                                        </Button>
+                                    </div>
                                     <Form.Text className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
@@ -253,22 +266,29 @@ const ShowOutfit = (props) => {
 
                 {outfit.comments.map((comment) => (
                     comment?.author === user?._id ?
-                        (<Card>
-                            <Card.Title><a href={`/outfits/user/${comment?.author}`}>{comment?.name}</a></Card.Title>
-                            <Card.Body className="show-page-card">
-                                <p>{comment?.note}</p>
-                                <p>Date: <Moment format="MMMM DD, YYYY">{comment?.date}</Moment></p>
+                        (<Card style={{ width: '70%' }} className="comment-card">
+                            <Card.Body>
+                                <div className="comment-date">
+                                    <small><Moment format="MMMM DD, YYYY">{comment.date}</Moment></small>
+                                    <CloseButton className="comment-button" variant="light" onClick={() => removeTheComment(outfit?._id, comment?._id)}/>
+                                </div>
+                                <div className="comment-card-body d-flex row-nowrap">
+                                    <a className="comment-card-username" style={linkStyle} href={`/outfits/user/${comment?.author}`}>{comment?.name}</a>
+                                    {comment.note}
+                                </div>
                             </Card.Body>
-                            <Card.Footer>
-                                <Button onClick={() => removeTheComment(outfit?._id, comment?._id)}>Delete</Button>
-                            </Card.Footer>
+
                         </Card>)
                         :
-                        (<Card>
-                            <Card.Title><a href={`/outfits/user/${comment?.author}`}>{comment?.name}</a></Card.Title>
-                            <Card.Body className="show-page-card">
-                                <p>{comment.note}</p>
-                                <p>Date: <Moment format="MMMM DD, YYYY">{comment.date}</Moment></p>
+                        (<Card style={{ width: '70%' }} className="comment-card">
+                            <Card.Body>
+                                <div className="comment-date">
+                                    <small><Moment format="MMMM DD, YYYY">{comment.date}</Moment></small>
+                                </div>
+                                <div className="comment-card-body d-flex row-nowrap">
+                                    <a className="comment-card-username" style={linkStyle} href={`/outfits/user/${comment?.author}`}>{comment?.name}</a>
+                                    {comment.note}
+                                </div>
                             </Card.Body>
                         </Card>)
                 ))}

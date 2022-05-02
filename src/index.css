@@ -108,11 +108,9 @@ code {
   z-index: -1;
 }
 
-/* .index-page-cards {
-  position: absolute; 
-  top: -570px;
-  z-index: 1;
-} */
+.index-page-cards {
+  margin: 40px;
+}
 
 .index-card-rating {
   font-weight: bold;
@@ -129,12 +127,50 @@ code {
 }
 
 .show-page-card {
+  width: 100px;
+  margin: 20px;
+}
+
+.show-page-card-text {
   padding: 20px;
+  width: 50%; 
+}
+
+.comment-card {
+  width: 50%;
+  display: flex;
+  margin: 20px;
+}
+
+.comment-card-body {
+  display: flex;
+}
+
+.comment-card-username {
+  padding: 0px 5px 0px 0px;
+}
+
+.comment-date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment-button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment-button {
+  margin-left: 10px;
+}
+
+.submit-button-div {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .submit-button {
   font-size: 20px;
-  padding: 50px;
 }
 
 
