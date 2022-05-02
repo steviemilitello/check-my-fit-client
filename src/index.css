@@ -79,6 +79,51 @@ code {
   width: 100%;
 }
 
+.spotlight {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  width: 20%;
+  padding: 15px;
+  z-index: -1;
+  left: 75%;
+}
+
+.spotlight-card-title-header {
+  position: relative;
+  z-index: -1;
+}
+
+.spotlight-cards-div {
+  position: relative;
+  display: flex; 
+  flex-flow: row wrap;
+  z-index: -1;
+}
+
+.spotlight-cards {
+  position: relative;
+  text-align: center;
+  width: 50%;
+  z-index: -1;
+}
+
+/* .index-page-cards {
+  position: absolute; 
+  top: -570px;
+  z-index: 1;
+} */
+
+.index-card-rating {
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 6px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  width: 20%;
+}
+
 .show-page-img {
   width: 50%;
 }

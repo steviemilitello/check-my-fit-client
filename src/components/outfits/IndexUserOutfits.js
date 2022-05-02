@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import { useParams, Link } from 'react-router-dom'
 import { indexOutfitsSuccess, indexOutfitsFailure } from '../shared/AutoDismissAlert/messages'
 
+
 const cardContainerLayout = {
     display: 'flex',
     justifyContent: 'center',

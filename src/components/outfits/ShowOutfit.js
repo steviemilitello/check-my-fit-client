@@ -66,13 +66,18 @@ const ShowOutfit = (props) => {
 
     const addVote = (vote) => {
         createVote(user, outfit._id, vote)
-        const votes = outfit?.votes?.map(vote => {
-            return vote.vote
-        })
 
-        updateOutfit(user, outfit, vote)
-            .then(() => setUpdated(true))
-        // .then(() => setVoted(true))
+        const { notCount, hotCount } = getVoteCount();
+
+        // console.log("hotVotes & notVotes", hotCount, notCount)
+        if (hotCount >= notCount) {
+            updateOutfit(user, outfit, { vote, rating: 'Hot' })
+                .then(() => setUpdated(true))
+        } else {
+            updateOutfit(user, outfit, { vote, rating: 'Not' })
+                .then(() => setUpdated(true))
+        }
+
     }
 
 
@@ -133,7 +138,7 @@ const ShowOutfit = (props) => {
     }
     )
 
-    const showRating = () => {
+    const getVoteCount = () => {
         const votes = outfit?.votes?.map(vote => {
             return vote.vote
         })
@@ -143,6 +148,11 @@ const ShowOutfit = (props) => {
         const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
         const hotCount = countOccurrences(votes, 'Hot')
         const notCount = countOccurrences(votes, 'Not')
+        return { hotCount: hotCount, notCount: notCount }
+    }
+
+    const showRating = () => {
+        const { notCount, hotCount } = getVoteCount();
 
         // console.log("hotVotes & notVotes", hotCount, notCount)
         if (hotCount >= notCount) {
