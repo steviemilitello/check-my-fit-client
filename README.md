@@ -83,25 +83,6 @@
 
 <h1>:arrow_right: Routes</h1>
 
-<p></p>
-<h1>:framed_picture: Screenshots</h1>
-
-<h1>:bust_in_silhouette: User Story</h1>
-
-**As a Public User:**
-- navigate through index of looks.
-- click on individual looks to view/see other user comments.
-- sign up
-
-**As a Logged in User:**
-- they will to be able to look through a feed of outfits uploaded by other users
-- they will be able to click on individual outfits to see more details, previous comments, & be able to add a comment
-- they will be able to upload personal outfits, with a description
-- they will be able to their or another users profile page and see a list of their outfits 
-
-
-<h1>:arrow_right: Routes</h1>
-
 <details>
 <summary> Outfits</summary>
 
@@ -148,6 +129,21 @@
 
 </details>
 <p></p>
+
+<h1>:framed_picture: Screenshots</h1>
+
+<h1>:bust_in_silhouette: User Story</h1>
+
+**As a Public User:**
+- navigate through index of looks.
+- click on individual looks to view/see other user comments.
+- sign up
+
+**As a Logged in User:**
+- they will to be able to look through a feed of outfits uploaded by other users
+- they will be able to click on individual outfits to see more details, previous comments, & be able to add a comment
+- they will be able to upload personal outfits, with a description
+- they will be able to their or another users profile page and see a list of their outfits 
 
 <h1>:framed_picture: Screenshots</h1>
 
