@@ -134,16 +134,32 @@
 
 <h1>:bust_in_silhouette: User Story</h1>
 
-**As a Public User:**
-- navigate through index of looks.
-- click on individual looks to view/see other user comments.
-- sign up
+<details open>
+<summary>As a Public User</summary>
+<ul>
+    <li>As a public user they want to be able to be view user's outfits</li>
+    <li>They want be able click on user's profiles</li>
+    <li>They want be able click on each individual outfit</li>
+    <li>They want to be able to see the rating on the outfit</li>
+    <li>They want to be able t o see comments on an outfit</li>
+    <li>They want to able to sign up if they choose for added functionality</li>
+</ul>
+</details>
+<p></p>
 
-**As a Logged in User:**
-- they will to be able to look through a feed of outfits uploaded by other users
-- they will be able to click on individual outfits to see more details, previous comments, & be able to add a comment
-- they will be able to upload personal outfits, with a description
-- they will be able to their or another users profile page and see a list of their outfits 
+<details open>
+<summary>As a Logged in User</summary>
+<ul>
+    <li>As a logged in user they want to be able do all that a public user can do but with added functionality</li>
+    <li>They want to be able to have a profile page with their outfits</li>
+    <li>They want to be able to add their own outfits</li>
+    <li>They want to be able to delete their own outfits</li>
+    <li>They want to be able rate other user's outfits</li>
+    <li>They want to be able to add comments on an outfit</li>
+    <li>They want to be able to delete comments on an outfit</li>
+</ul>
+</details>
+<p></p>
 
 <h1>:framed_picture: Screenshots</h1>
 
