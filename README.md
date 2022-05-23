@@ -136,6 +136,7 @@
 
 <details open>
 <summary>As a Public User</summary>
+<p></p>
 <ul>
     <li>As a public user they want to be able to be view user's outfits</li>
     <li>They want be able click on user's profiles</li>
@@ -149,6 +150,7 @@
 
 <details open>
 <summary>As a Logged in User</summary>
+<p></p>
 <ul>
     <li>As a logged in user they want to be able do all that a public user can do but with added functionality</li>
     <li>They want to be able to have a profile page with their outfits</li>
