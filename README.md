@@ -105,7 +105,7 @@
 <summary>How to Edit an Outfit</summary>
 <p></p>
 <ol>
-   <li>From the fit feed, click view on the outfit you wish to edit, if you created it</li>
+   <li>From the Fit Feed, click view on the outfit you wish to edit, if you created it</li>
    <li>Once on the outfit page, click the Edit Outfit button in the lower right corner of the outfit</li>
    <li>Fill in the fields and uncheck or check the checkboxes you wish to change, and the click submit</li>
    <li>The edited details will appear on the outfit's page and on the Fit Feed page</li>
