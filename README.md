@@ -33,7 +33,7 @@
 
 <h1>:dress: Description</h1>
 
-<p>Check my Fit is an app where you can share your outfits and have them rated. As a user you can add your outfits, add tags to your outfits, edit and delete your outfits, view other user's outfits, rate other user's outfits hot or not and add and delete comments on a outfit's page.</p>
+<p>Check my Fit is an app where you can share your outfits and have them rated. As a user you can view outfits, add your outfits, add tags to your outfits, edit and delete your outfits, view other user's outfits, rate other user's outfits hot or not and add and delete comments on a outfit's page.</p>
 
 <h1> :atom_symbol: Getting Started </h1>
 
