@@ -132,6 +132,33 @@
 
 <h1>:framed_picture: Screenshots</h1>
 
+<details>
+<summary> :art: Wireframes</summary><br />
+
+| Description | Screenshot |
+|------------ | ------------|
+| <h3 align="center">Sign In Page</h3> | <img src="https://i.imgur.com/wDpQTk6.png" width="700"/> |
+| <h3 align="center">Index Page</h3> | <img src="https://i.imgur.com/2zZRJZU.png" width="700"> |
+| <h3 align="center">Show Page</h3> | <img src="https://i.imgur.com/RZxyyd0.png" width="700"> |
+| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/vaZstpi.png" width="700"> |
+
+</details>
+
+<details open>
+<summary> :gear: Functionality</summary><br />
+
+| Description | Screenshot |
+|------------ | ------------|
+| <h3 align="center">Sign In Page</h3> | <img src="https://i.imgur.com/IkzO6xK.png" width="700"/> |
+| <h3 align="center">Index Page</h3> | <img src="https://i.imgur.com/h4dMtXE.png" width="700"> |
+| <h3 align="center">Show Page</h3> | <img src="https://i.imgur.com/DRvCpHu.png" width="700"/> |
+| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/yx2waUp.png" width="700"> |
+</details>
+<p></p>
+
+</details>
+<p></p>
+
 <h1>:bust_in_silhouette: User Story</h1>
 
 <details open>
@@ -162,21 +189,6 @@
 </ul>
 </details>
 <p></p>
-
-<h1>:framed_picture: Screenshots</h1>
-
-<details>
-<summary> :art: Wireframes</summary><br />
-
-| Description | Screenshot |
-|------------ | ------------|
-| <h3 align="center">Sign in Page</h3> | <img src="https://i.imgur.com/wDpQTk6.png" width="700"/> |
-| <h3 align="center">Index Page</h3> | <img src="https://i.imgur.com/2zZRJZU.png" width="700"> |
-| <h3 align="center">Show Page</h3> | <img src="https://i.imgur.com/RZxyyd0.png" width="700"> |
-| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/vaZstpi.png" width="700"> |
-
-
-</details>
 
 <h1>:computer: Technologies Used</h1>
 
