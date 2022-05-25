@@ -117,7 +117,7 @@
 <summary>How to Delete an Outfit</summary>
 <p></p>
 <ol>
-   <li>From the fit feed, click view on the outfit you wish to delete, if you created it</li>
+   <li>From the Fit Feed, click view on the outfit you wish to delete, if you created it</li>
    <li>Once on the outfit page, click the Delete Outfit button in the lower right corner of the outfit</li>
    <li>The outfit will no longer appear on the Fit Feed page or your Profile page</li>
 </ol>
