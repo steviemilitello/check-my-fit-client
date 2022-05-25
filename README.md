@@ -79,6 +79,97 @@
 
 <h3> :calling: How To Use </h3>
 
+<details>
+<summary>How to View a Profile</summary>
+<p></p>
+<ol>
+   <li>After logging in and being brought to the Fit Feed, click on the top of one of the outfits to view another user's profile</li>
+   <li>If you wish to view your own profile, click on My Fits in the Navbar</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Add an Outfit</summary>
+<p></p>
+<ol>
+   <li>After logging in, click Add New Outfit in the navbar</li>
+   <li>Fill in all the fields and click the checkboxes of the tags you wish to add</li>
+   <li>Click submit to add the new outfit</li>
+   <li>Your outfit will appear on the Fit Feed page and your Profile page</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Edit an Outfit</summary>
+<p></p>
+<ol>
+   <li>From the fit feed, click view on the outfit you wish to edit, if you created it</li>
+   <li>Once on the outfit page, click the Edit Outfit button in the lower right corner of the outfit</li>
+   <li>Fill in the fields and uncheck or check the checkboxes you wish to change, and the click submit</li>
+   <li>The edited details will appear on the outfit's page and on the Fit Feed page</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Delete an Outfit</summary>
+<p></p>
+<ol>
+   <li>From the fit feed, click view on the outfit you wish to delete, if you created it</li>
+   <li>Once on the outfit page, click the Delete Outfit button in the lower right corner of the outfit</li>
+   <li>The outfit will no longer appear on the Fit Feed page or your Profile page</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Sort</summary>
+<p></p>
+<ol>
+   <li>There are several ways to sort, either from the Fit Feed page, Outfit Page itself, or from the Navbar</li>
+   <li>From the Fit Feed, click on a tag on one of the outfits to view the sorted page for the given tag</li>
+   <li>From the Outfit Page, click on a tag on and view the sorted page for the given tag</li>
+   <li>From the Navbar click Tag Search in the right corner. From there you will get a drop down, where you will be able to click on the tag and see the sorted page for the given tag</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Rate Outfits Hot or Not</summary>
+<p></p>
+<ol>
+   <li>From the Fit Feed, click view on an Outfit</li>
+   <li>On the Outfit page, click the fire icon for Hot or no symbol for Not, according to how you wish to vote</li>
+   <li>Under the caption of the outfit, it will display Hot or Not depending on the total number of votes (Hot is defaulted if no votes are made)</li>
+   <li>The Hot or Not rating is also displayed on the Fit Feed page for each outfit</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Add a Comment</summary>
+<p></p>
+<ol>
+   <li>From the Fit Feed, click view on an Outfit</li>
+   <li>On the Outfit page, enter your comment at the bottom of the page where it prompts you to do so</li>
+   <li>Click submit to have your comment appear on the Outfit Page</li>
+   <li>The comment will appear at the bottom of the page under the Enter your Comment form</li>
+</ol>
+</details>
+<p></p>
+
+<details>
+<summary>How to Delete a Comment</summary>
+<p></p>
+<ol>
+   <li>From the Fit Feed, click view on an Outfit</li>
+   <li>On the Outfit page, if you created a comment, at X will appear on the upper right of the comment</li>
+   <li>Click the X and the comment will be deleted</li>
+   <li>The comment will not longer appear on the Outfit page</li>
+</ol>
+</details>
 <p></p>
 
 <h1>:arrow_right: Routes</h1>
@@ -112,10 +203,6 @@
 |--------------------|-----------|-------------------- |
 | `/vote/:outfitId`  | `Post`    | Yes                 |
 
-</details>
-
-<details>
-<summary> Comments</summary>
 </details>
 
 <details>
