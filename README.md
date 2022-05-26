@@ -267,7 +267,7 @@
 <summary>As a Logged in User</summary>
 <p></p>
 <ul>
-    <li>As a logged in user they want to be able do all that a public user can do but with added functionality</li>
+    <li>As a logged in user they want to be able to do all that a public user can do but with added functionality</li>
     <li>They want to be able to have a profile page with their outfits</li>
     <li>They want to be able to add their own outfits</li>
     <li>They want to be able to delete their own outfits</li>
