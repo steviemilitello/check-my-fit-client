@@ -208,11 +208,12 @@
 <details>
 <summary> User</summary>
 
-| Endpoint         | Component | AuthenticatedRoute? |
-|------------------|-----------|-------------------- |
-| `/sign-up`       | `SignUp`  | No                  |
-| `/sign-in`       | `SignIn`  | No                  |
-| `/sign-out`      | `SignOut` | No                  |
+| Endpoint                  | Component        | AuthenticatedRoute? |
+|---------------------------|------------------|-------------------- |
+| `/sign-up`                | `SignUp`         | No                  |
+| `/sign-in`                | `SignIn`         | No                  |
+| `/sign-out`               | `SignOut`        | Yes                 |
+| `/change-password`        | `ChangePassword` | Yes                 |
 
 </details>
 <p></p>
