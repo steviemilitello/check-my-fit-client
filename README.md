@@ -223,24 +223,24 @@
 <details>
 <summary> :art: Wireframes</summary><br />
 
-| Description | Screenshot |
-|------------ | ------------|
-| <h3 align="center">Sign In Page</h3> | <img src="https://i.imgur.com/wDpQTk6.png" width="700"/> |
-| <h3 align="center">Index Page</h3> | <img src="https://i.imgur.com/2zZRJZU.png" width="700"> |
-| <h3 align="center">Show Page</h3> | <img src="https://i.imgur.com/RZxyyd0.png" width="700"> |
-| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/vaZstpi.png" width="700"> |
+| Description                               | Screenshot                                               |
+|------------------------------------------ | -------------------------------------------------------- |
+| <h3 align="center">Sign In Page</h3>      | <img src="https://i.imgur.com/wDpQTk6.png" width="700"/> |
+| <h3 align="center">Index Page</h3>        | <img src="https://i.imgur.com/2zZRJZU.png" width="700">  |
+| <h3 align="center">Show Page</h3>         | <img src="https://i.imgur.com/RZxyyd0.png" width="700">  |
+| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/vaZstpi.png" width="700">  |
 
 </details>
 
 <details open>
 <summary> :gear: Functionality</summary><br />
 
-| Description | Screenshot |
-|------------ | ------------|
-| <h3 align="center">Sign In Page</h3> | <img src="https://i.imgur.com/IkzO6xK.png" width="700"/> |
-| <h3 align="center">Index Page</h3> | <img src="https://i.imgur.com/h4dMtXE.png" width="700"> |
-| <h3 align="center">Show Page</h3> | <img src="https://i.imgur.com/DRvCpHu.png" width="700"/> |
-| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/yx2waUp.png" width="700"> |
+| Description                               | Screenshot                                               |
+|------------------------------------------ | -------------------------------------------------------- |
+| <h3 align="center">Sign In Page</h3>      | <img src="https://i.imgur.com/IkzO6xK.png" width="700"/> |
+| <h3 align="center">Index Page</h3>        | <img src="https://i.imgur.com/h4dMtXE.png" width="700">  |
+| <h3 align="center">Show Page</h3>         | <img src="https://i.imgur.com/DRvCpHu.png" width="700"/> |
+| <h3 align="center">User Profile Page</h3> | <img src="https://i.imgur.com/yx2waUp.png" width="700">  |
 </details>
 <p></p>
 
@@ -257,7 +257,7 @@
     <li>They want be able click on user's profiles</li>
     <li>They want be able click on each individual outfit</li>
     <li>They want to be able to see the rating on the outfit</li>
-    <li>They want to be able t o see comments on an outfit</li>
+    <li>They want to be able to see comments on an outfit</li>
     <li>They want to able to sign up if they choose for added functionality</li>
 </ul>
 </details>
