@@ -292,8 +292,7 @@
 
 <h1>:fast_forward: Next Steps</h1>
 
-<ul>
-    <li>Add Top Outfits aggregated by Hot rating to User's Profile page</li>
-    <li>Expand on the amount of tags available for a user to select</li>
-    <li>Add ability to upload photos via Cloudinary API</li>
- </ul>
+- [ ] Add Top Outfits aggregated by Hot rating to User's Profile page
+- [ ] Expand on the amount of tags available for a user to select
+- [ ] Add ability to upload photos via Cloudinary API
+
